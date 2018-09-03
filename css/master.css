@@ -1,0 +1,25 @@
+*{
+  font-family: arial, sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+header ul{
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+}
+header li{
+
+  float: left;
+  width: 33%;
+  text-align: center;
+}
+
+.home-buscar input{
+  display: block;
+  width: 95%;
+}
