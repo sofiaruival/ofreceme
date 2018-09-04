@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+}
+
+ul, ol{
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body{
+  font-family:sans-serif;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+    margin: 0;
+}
+
+h1{
+  font-size: 15px;
+}
+
+h2{
+  font-size: 10px;
+}
+ button{
+   width: 100%;
+   height: 20px;
+   font-size: 9px;
+ }
+button.facebook{
+  background-color: #5d5dd6;
+  color: white;
+}
+
+button.Ingresar{
+  background-color: #f34646;
+  color: white;
+}
+
+div.checkbox{
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+div.cuenta{
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
