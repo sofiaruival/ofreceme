@@ -27,13 +27,20 @@ header .ofreceme{
   font-size: 1.5em;
 }
 
-header img{
+header img.logo_corto{
   width: 62%;
+}
+header img.logo_largo{
+  width:95%;
 }
 
 .home-buscar input{
   display: block;
   width: 95%;
+  margin-top: 5%;
+  border-style: solid;
+  border-color: lawngreen;
+  padding: 6px;
 }
 
 .categorias-home img{
@@ -43,7 +50,7 @@ header img{
 }
 section{
   ;
-  padding: 0% 10% 10% 10%;
+  padding: 0% 10% 0% 10%;
 }
 article{
   position: relative;
@@ -58,7 +65,7 @@ article a{
   display: block;
   width: 90%;
   background-color: rgba(0,0,0,0.5);
-  color: white;
+  color: lawngreen;
   text-align: center;
   padding: 5px;
   position: absolute;
