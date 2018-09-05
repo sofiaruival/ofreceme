@@ -57,3 +57,20 @@ article a{
 
 
 }
+
+@media (min-width:768px){
+  .container{
+    max-width: 720px;
+    margin: 0 auto;
+    }
+  }
+
+@media (min-width:1180px){
+  .container{
+    max-width: 1100px;
+    margin: 0 auto;
+    }
+  .toogle-nav{
+  display: none;
+    }
+  }
