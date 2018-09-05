@@ -1,10 +1,14 @@
 *{
-  font-family: arial, sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 a{
   text-decoration: none;
   color: black;
+}
+header{
+  background-color: lightgray;
+  padding: 2.5px;
 }
 
 header ul{
@@ -21,4 +25,35 @@ header li{
 .home-buscar input{
   display: block;
   width: 95%;
+}
+
+.categorias-home img{
+  display: block;
+  width: 90%;
+  margin: 5%;
+}
+section{
+  ;
+  padding: 10%;
+}
+article{
+  position: relative;
+}
+
+
+
+
+article a{
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  width: 90%;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+
+
 }
