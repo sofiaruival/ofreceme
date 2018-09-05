@@ -8,7 +8,7 @@ a{
 }
 header{
   background-color: lightgray;
-  padding: 2.5px;
+  padding: 0.5px;
 }
 
 header ul{
@@ -18,8 +18,17 @@ header ul{
 }
 header li{
   float: left;
-  width: 33%;
+  width: 50%;
   text-align: center;
+}
+
+header .ofreceme{
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+header img{
+  width: 62%;
 }
 
 .home-buscar input{
@@ -34,7 +43,7 @@ header li{
 }
 section{
   ;
-  padding: 10%;
+  padding: 0% 10% 10% 10%;
 }
 article{
   position: relative;
