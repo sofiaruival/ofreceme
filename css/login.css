@@ -91,8 +91,8 @@ form.IngresarDatos{
 
 p.email input{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 10px 20px;
+  margin: 0px 0;
   font-size: 15px;
   color: #00000045;
   border-radius: 10px;
@@ -100,12 +100,14 @@ p.email input{
 
 p.contraseña input {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 10px 20px;
+  margin: 0px 0;
   font-size: 15px;
   color: #00000045;
   border-radius: 10px;
   }
+
+
 
 div.checkbox{
   width: 90%;
@@ -113,7 +115,7 @@ div.checkbox{
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 43px;
+  margin-top: 80px;
 }
 
 div.recordame p {
