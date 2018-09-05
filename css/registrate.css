@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+ul, ol{
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+  font-family:sans-serif;
+}
+header{
+  display: block;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+section{
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 20px;
+  color: #00000080;
+  margin-bottom: 20px;
+}
+div.renglonRayas{
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+h2{
+  font-size: 17px;
+  color: #00000045;
+}
+
+hr{
+  margin-top: 25px;
+  margin-bottom: 30px;
+  width: 14%;
+}
+
+button.facebook{
+  width: 100%;
+  height: 41px;
+  font-size: 15px;
+  color: white;
+  background-color: #5d5dd6;
+  border-radius: 10px;
+}
+
+button.registrate{
+  width: 100%;
+  height: 41px;
+  font-size: 15px;
+  color: white;
+  background-color: #f34646;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+form.IngresarDatos{
+    width: 90%;
+    height: 200px;
+    text-align: left;
+}
+
+p.nombre input {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0px 0;
+  font-size: 15px;
+  color: #00000045;
+  border-radius: 10px;
+  }
+
+p.apellido input {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 0px 0;
+    font-size: 15px;
+    color: #00000045;
+    border-radius: 10px;
+    }
+
+p.email input{
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0px 0;
+  font-size: 15px;
+  color: #00000045;
+  border-radius: 10px;
+}
+
+p.contraseña input {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 0px 0;
+  font-size: 15px;
+  color: #00000045;
+  border-radius: 10px;
+  }
+
+div.checkbox{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 43px;
+}
+
+div.novedades p {
+ font-size: 11px;
+ color: #00000080;
+}
+
+div.terminosYcondiciones p{
+  font-size: 11px;
+}
+
+div.terminosYcondiciones p a{
+ font-size: 11px;
+ text-decoration: underline;
+ color: #5d5dd6;;
+}
+
+div.cuenta{
+  width: 90%;
+  font-size: 11px;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+div.cuenta p a{
+text-decoration: underline;
+color: #5d5dd6;
+}
