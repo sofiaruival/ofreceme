@@ -83,7 +83,7 @@ button.Ingresar{
   margin-bottom: 10px;
 }
 
-form.Ingresar{
+form.IngresarDatos{
     width: 90%;
     height: 100px;
     text-align: left;
@@ -139,3 +139,23 @@ div.cuenta p a{
 text-decoration: underline;
 color: #5d5dd6;
 }
+
+@media(min-width:768px){
+div.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  }
+  }
+
+@media (min-width: 1024px){
+  div.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    }
+    }
