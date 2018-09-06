@@ -33,12 +33,12 @@ header{
   background-color: white;
 }
 
-.nav-principal{
+nav.nav-principal{
   width: 100%;
   display: none;
   float: left;
-
 }
+
 nav.nav-principal ul{
   position: relative;
   display: flex;
