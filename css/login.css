@@ -1,6 +1,5 @@
 
 
-
 section{
   width: 95%;
   display: flex;
@@ -9,12 +8,12 @@ section{
   flex-direction: column;
   margin-top: 15px;
   padding: 0px;
+  background-color: white;
 }
 
 h1{
   font-size: 20px;
   color: #00000080;
-  margin-top: 1px;
 }
 
 div.renglonRayas{
@@ -47,7 +46,6 @@ button{
 
 button.facebook{
   background-color: #5d5dd6;
-
 }
 
 button.Ingresar{
@@ -55,11 +53,9 @@ button.Ingresar{
   margin-top: 15px;
   margin-bottom: 10px;
   color: black;
-
 }
 
 form.IngresarDatos{
-
     height: 100px;
     text-align: left;
 }
@@ -81,8 +77,6 @@ p.contraseña input {
   color: #00000045;
   border-radius: 10px;
   }
-
-
 
 div.checkbox{
   width: 90%;
@@ -118,13 +112,19 @@ color: #5d5dd6;
 }
 
 @media(min-width:768px){
-div.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
+  div.container{
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
   }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 25px;
+    }
 
   nav.nav-principal{
     width: 100%
@@ -154,13 +154,20 @@ div.container {
 }
 
 @media (min-width: 1024px){
-  div.container {
+  div.container{
+    width: 95%;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 40%;
+    margin: 25px;
     }
+
     nav.nav-principal{
       width: 100%
     }

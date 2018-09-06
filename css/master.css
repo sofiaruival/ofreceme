@@ -4,14 +4,12 @@
 }
 
 .container {
-
   width: 95%;
-  margin: 10px auto;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
 ul, ol{
@@ -20,7 +18,6 @@ ul, ol{
 
 li {
   list-style-type: none;
-
 }
 
 body{
@@ -32,8 +29,9 @@ a{
   text-decoration: none;
   color: black;
 }
+
 header{
-  background-color: lightgray;
+  background-color: rgba(0,0,0,0.5);
   padding: 0.5px;
   display: block;
   width: 95%;
@@ -48,7 +46,7 @@ header ul{
 
 header li{
   float: left;
-  width: 50%;
+  width: 40%;
   text-align: center;
 }
 
@@ -58,10 +56,11 @@ header .ofreceme{
 }
 
 header img.logo_corto{
-  width: 62%;
+  width: 45%;
 }
+
 header img.logo_largo{
-  width:95%;
+  width:80%;
 }
 
 nav.nav-principal{
@@ -84,24 +83,21 @@ nav.nav-principal ul li{
   float: left;
   width: 100%;
   text-align: center;
-  background-color: lightgrey;
+  background-color:rgba(0,0,0,0.5);
   margin-bottom: 5px;
   font-size: 14px;
 }
 
 nav.nav-principal ul li a{
   font-size: 13px;
-  color: black;
+  color: white;
   padding: 5px 0;
   font-weight: bold;
 }
 
-
-
 header:hover nav.nav-principal {
 display: block;
 }
-
 
 .articleHeader{
   background-color: white;
@@ -109,13 +105,14 @@ display: block;
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 1%;
+  margin-bottom: 20px;
 }
-
 
 .home-buscar input{
   display: block;
   width: 95%;
   margin-top: 5%;
+  margin-bottom: 5%;
   border-style: solid;
   border-color: lawngreen;
   padding: 6px;
@@ -129,16 +126,19 @@ display: block;
 section{
   display: block;
   width: 100%;
-
-
-
 }
+
+section.buscar-demanda{
+  margin-top: 15px;
+}
+form.home-buscar{
+  margin-bottom: 5px;
+}
+
 article{
   position: relative;
   background-color: white;
 }
-
-
 
 article a{
   text-decoration: none;
@@ -151,8 +151,6 @@ article a{
   padding: 5px;
   position: absolute;
   top: 50%;
-
-
 }
 
 @media (min-width:768px){
@@ -161,7 +159,6 @@ article a{
 }
 
 .articulos{
-  margin-top: 15px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -171,8 +168,7 @@ article a{
 
   nav.nav-principal{
     width: 100%
-    display:block;
-
+    display: initial;
   }
 
   nav.nav-principal ul{
@@ -206,6 +202,11 @@ article a{
 
   article{
     width: 30%;
+  }
+
+  nav.nav-principal{
+    width: 100%
+    display: initial;
   }
 
   nav.nav-principal ul{
