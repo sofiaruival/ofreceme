@@ -168,7 +168,7 @@ article a{
 
   nav.nav-principal{
     width: 100%
-    display: initial;
+    display: block;
   }
 
   nav.nav-principal ul{
@@ -205,8 +205,8 @@ article a{
   }
 
   nav.nav-principal{
-    width: 100%
-    display: initial;
+    width: 100%;
+    display: block;
   }
 
   nav.nav-principal ul{
