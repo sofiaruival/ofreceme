@@ -1,18 +1,6 @@
 
 
 
-
-
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-}
-
-
 section{
   width: 95%;
   display: flex;
@@ -47,28 +35,31 @@ hr{
   width: 14%;
 }
 
-button.facebook{
-  width: 100%;
+button{
+  width: 90%;
   height: 41px;
   font-size: 15px;
   color: white;
-  background-color: #5d5dd6;
   border-radius: 10px;
+  font-weight: bold;
+}
+
+
+button.facebook{
+  background-color: #5d5dd6;
+
 }
 
 button.Ingresar{
-  width: 100%;
-  height: 41px;
-  font-size: 15px;
-  color: white;
-  background-color: #f34646;
-  border-radius: 10px;
+  background-color: #00ff00;
   margin-top: 15px;
   margin-bottom: 10px;
+  color: black;
+
 }
 
 form.IngresarDatos{
-    width: 90%;
+
     height: 100px;
     text-align: left;
 }
@@ -99,7 +90,7 @@ div.checkbox{
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
-  margin-top: 80px;
+  margin-top: 12px;
 }
 
 div.recordame p {
