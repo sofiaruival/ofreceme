@@ -15,8 +15,10 @@ a {
 }
 
 body{
+  background: url(../images/bg1.jpg);
   font-family:sans-serif;
 }
+
 header{
   display: block;
   width: 100%;
@@ -28,7 +30,44 @@ header{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: white;
+}
 
+.nav-principal{
+  width: 100%;
+  display: none;
+  float: left;
+
+}
+nav.nav-principal ul{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav.nav-principal ul li{
+  text-transform: uppercase;
+  padding: 5px;
+  float: left;
+  width: 100%;
+  text-align: center;
+  background-color: lightgrey;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+nav.nav-principal ul li a{
+  font-size: 13px;
+  color: white;
+  padding: 5px 0;
+}
+
+
+
+header:hover nav.nav-principal {
+display: block;
 }
 
 section{
@@ -37,13 +76,14 @@ section{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+  margin-top: 15px;
+  padding: 0px;
 }
 
 h1{
   font-size: 20px;
   color: #00000080;
+  margin-top: 1px;
 }
 div.renglonRayas{
   width: 100%;
@@ -148,9 +188,35 @@ div.container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   }
+
+  nav.nav-principal{
+    width: 100%
   }
+
+  nav.nav-principal ul{
+    width: 100%;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+  }
+    nav.nav-principal ul li a {
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      margin-right: 0px;
+      margin-left: 0px;
+      padding: 4px;
+      border-radius: 5px;
+      text-transform: capitalize;
+      border-radius: 30px;
+  }
+}
 
 @media (min-width: 1024px){
   div.container {
@@ -158,6 +224,31 @@ div.container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
+    }
+    nav.nav-principal{
+      width: 100%
+    }
+
+    nav.nav-principal ul{
+      width: 100%;
+      font-size: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px,
+
+    }
+      nav.nav-principal ul li a {
+        text-align: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 4px;
+        border-radius: 5px;
+        text-transform: capitalize;
+        border-radius: 30px;
     }
     }
