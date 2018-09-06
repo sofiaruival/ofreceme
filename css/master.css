@@ -8,7 +8,7 @@ a{
 }
 header{
   background-color: lightgray;
-  padding: 2.5px;
+  padding: 0.5px;
 }
 
 header ul{
@@ -18,13 +18,29 @@ header ul{
 }
 header li{
   float: left;
-  width: 33%;
+  width: 50%;
   text-align: center;
+}
+
+header .ofreceme{
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+header img.logo_corto{
+  width: 62%;
+}
+header img.logo_largo{
+  width:95%;
 }
 
 .home-buscar input{
   display: block;
   width: 95%;
+  margin-top: 5%;
+  border-style: solid;
+  border-color: lawngreen;
+  padding: 6px;
 }
 
 .categorias-home img{
@@ -34,7 +50,7 @@ header li{
 }
 section{
   ;
-  padding: 10%;
+  padding: 0% 10% 0% 10%;
 }
 article{
   position: relative;
@@ -49,7 +65,7 @@ article a{
   display: block;
   width: 90%;
   background-color: rgba(0,0,0,0.5);
-  color: white;
+  color: lawngreen;
   text-align: center;
   padding: 5px;
   position: absolute;
