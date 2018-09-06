@@ -1,28 +1,7 @@
-* {
-  box-sizing: border-box;
-}
 
-ul, ol{
-  padding: 0;
-}
 
-li {
-  list-style-type: none;
-}
 
-a {
-  text-decoration: none;
-}
 
-body{
-  background: url(../images/bg1.jpg);
-  font-family:sans-serif;
-}
-
-header{
-  display: block;
-  width: 100%;
-}
 
 .container {
   width: 100%;
@@ -33,42 +12,6 @@ header{
   background-color: white;
 }
 
-nav.nav-principal{
-  width: 100%;
-  display: none;
-  float: left;
-}
-
-nav.nav-principal ul{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-nav.nav-principal ul li{
-  text-transform: uppercase;
-  padding: 5px;
-  float: left;
-  width: 100%;
-  text-align: center;
-  background-color: lightgrey;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
-nav.nav-principal ul li a{
-  font-size: 13px;
-  color: white;
-  padding: 5px 0;
-}
-
-
-
-header:hover nav.nav-principal {
-display: block;
-}
 
 section{
   width: 95%;
@@ -85,6 +28,7 @@ h1{
   color: #00000080;
   margin-top: 1px;
 }
+
 div.renglonRayas{
   width: 100%;
   display: flex;
