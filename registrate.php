@@ -1,3 +1,24 @@
+<?php
+
+$usernameDefault="";
+$apellidoDefault="";
+$emailDefault="";
+
+if($_POST){
+  $usernameDefault = $_POST["nombre"];
+  include_once("funciones.php");
+  $errores=validarDatos();
+  if(empty($errores)){
+    header('Location: index.php');
+    exit;
+  }
+  foreach($errores as $error){
+    echo $error."<br>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -50,22 +71,22 @@
           <hr>
         </div>
 
-        <form class="IngresarDatos" action="index.html" method="post">
+        <form id="formulario" class="IngresarDatos" action="registrate.php" method="post">
           <p class="nombre">
-            <label class="completar" for="Nombre"></label>
-            <input type="text" name="Nombre" placeholder="Nombre">
+            <label class="completar" for="nombre"></label>
+            <input type="text" name="nombre" placeholder="Nombre" value="<?=$usernameDefault?>" required>
           </p>
           <p class="apellido">
-            <label class="completar" for="Apellido"></label>
-            <input type="text" name="Apellido" placeholder="Apellido">
+            <label class="completar" for="apellido"></label>
+            <input type="text" name="apellido" placeholder="Apellido" value="<?=$apellidoDefault?>" required>
           </p>
           <p class="email">
-            <label class="completar" for="Email"></label>
-            <input type="text" name="Email" placeholder="Email">
+            <label class="completar" for="email"></label>
+            <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>" required>
           </p>
           <p class="contraseña">
-            <label class="completar" for="Contraseña"></label>
-            <input type="text" name="Contraseña" placeholder="Contraseña">
+            <label class="completar" for="contraseña"></label>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
           </p>
         </form>
 
@@ -83,7 +104,8 @@
             </p>
           </div>
 
-        <button class="registrate" type="submit" name="registrate">Registrate</button>
+        <button form="formulario" class="registrate" type="submit" name="registrate">Registrate</button>
+
 
         <div class="cuenta">
           <div class="notenescuenta">

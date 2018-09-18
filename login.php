@@ -13,10 +13,10 @@
       <header>
         <ul>
           <li>
-            <a href="index.html"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
+            <a href="index.php"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
           </li>
           <li>
-            <a href="index.html"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
+            <a href="index.php"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
           </li>
           <li>
             <a href="#" class="toggle-nav">
@@ -26,11 +26,11 @@
         </ul>
         <nav class="nav-principal">
   				<ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="#">Ofertar</a></li>
             <li><a href="#">Ofertas</a></li>
-            <li><a href="login.html">Ingresar</a></li>
-            <li><a href="registrate.html">Registrate</a></li>
+            <li><a href="login.php">Ingresar</a></li>
+            <li><a href="registrate.php">Registrate</a></li>
             <li><a href="#">Logout</a></li>
   				</ul>
   			</nav>
@@ -47,7 +47,7 @@
           <hr>
         </div>
 
-        <form class="IngresarDatos" action="index.html" method="post">
+        <form class="IngresarDatos" action="index.php" method="post">
           <p class="email">
             <label class="completar" for="email"></label>
             <input type="text" name="email" placeholder="Email">

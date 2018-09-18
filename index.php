@@ -14,10 +14,10 @@
     <header>
       <ul>
         <li>
-          <a href="index.html"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
+          <a href="index.php"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
         </li>
         <li>
-          <a href="index.html"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
+          <a href="index.php"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
         </li>
         <li>
           <a href="#" class="toggle-nav">
@@ -27,11 +27,11 @@
       </ul>
       <nav class="nav-principal">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.php">Inicio</a></li>
           <li><a href="#">Ofertar</a></li>
           <li><a href="#">Ofertas</a></li>
-          <li><a href="login.html">Ingresar</a></li>
-          <li><a href="registrate.html">Registrate</a></li>
+          <li><a href="login.php">Ingresar</a></li>
+          <li><a href="registrate.php">Registrate</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
       </nav>
@@ -43,7 +43,7 @@
       <div class="articleHeader">
       <h3>¿Quieres ofertar?</h3>
 
-      <form class="home-buscar" action="index.html" method="get">
+      <form class="home-buscar" action="index.php" method="get">
         <label for="buscar">Haz ofertas a quienes buscan tus productos.</label>
         <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
       </form>
