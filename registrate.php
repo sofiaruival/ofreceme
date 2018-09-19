@@ -7,7 +7,7 @@ $emailDefault="";
 if($_POST){
   $usernameDefault = $_POST["nombre"];
   include_once("funciones.php");
-  $errores=validarDatos();
+  $errores=validarDatosRegistrate();
   if(empty($errores)){
     header('Location: index.php');
     exit;

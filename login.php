@@ -1,3 +1,19 @@
+<?php
+$emailDefault="";
+
+if($_POST){
+  include_once("funciones.php");
+  $errores=validarDatosLogin();
+  if(empty($errores)){
+    header('Location: index.php');
+    exit;
+  }
+  foreach($errores as $error){
+    echo $error."<br>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -47,14 +63,14 @@
           <hr>
         </div>
 
-        <form class="IngresarDatos" action="index.php" method="post">
+        <form id="formulario" class="IngresarDatos" action="login.php" method="post">
           <p class="email">
             <label class="completar" for="email"></label>
-            <input type="text" name="email" placeholder="Email">
+            <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>" required>
           </p>
           <p class="contraseña">
-            <label class="completar" for="Contraseña"></label>
-            <input type="text" name="Contraseña" placeholder="Contraseña">
+            <label class="completar" for="contraseña"></label>
+            <input type="password" name="contraseña" placeholder="Contraseña"required>
           </p>
         </form>
         <div class="checkbox">
@@ -71,7 +87,7 @@
           </div>
         </div>
 
-        <button class="Ingresar" type="submit" name="Ingresar">Ingresar</button>
+        <button form="formulario" class="Ingresar" type="submit" name="Ingresar">Ingresar</button>
 
         <div class="cuenta">
           <div class="notenescuenta">

@@ -1,6 +1,6 @@
 
 <?php
-function validarDatos(){
+function validarDatosRegistrate(){
   $errores=[];
   $username= $_POST["nombre"];
   $email=$_POST["email"];
@@ -35,4 +35,25 @@ function validarDatos(){
   return $errores;
 }
 
+
+function validarDatosLogin(){
+  $errores=[];
+  $email=$_POST["email"];
+  $contraseña=$_POST["contraseña"];
+
+  if (strlen($email)==0) {
+    $errores[]="No completaste el username.";
+  }
+  elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
+    $errores[]="No completaste el email.";
+  }
+  if (strlen($contraseña)==0) {
+    $errores[]="No completaste la contraseña.";
+  }
+  elseif (strlen($contraseña)<5) {
+    $errores[]="La contraseña tiene que tener al menos 5 caracteres.";// code...// code...
+  }
+
+  return $errores;
+}
 ?>
