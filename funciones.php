@@ -1,6 +1,6 @@
 
 <?php
-function validarDatosRegistrate(){
+function validarDatosRegistrate($datos){
 //agrego datos finales, asiq ue voya  tener que renonbrar los if de las validaciones//
   $datosFinales =[];
   $errores=[];
@@ -10,12 +10,52 @@ function validarDatosRegistrate(){
   }
 
 //esto lo voy a cambiara como lo puso Dario, en registrate en vez de en funciones//
-  $username= $_POST["nombre"];
+/*
+  $nombre= $_POST["nombre"];
   $email=$_POST["email"];
   $apellido=$_POST["apellido"];
   $contraseña=$_POST["contraseña"];
+*/
 
-//lo voy a reubicar abajo de validacion de contraseña//
+  if ($datosFinales["nombre"] == "") {
+    $errores["nombre"] = "Hubo error en el nombre porque esta vacio";
+  } else if (ctype_alpha($datosFinales["nombre"]) == false) {
+    $errores["nombre"] = "Hubo error en el nombre porque tiene caracteres que no son alfabeticos";
+  }
+
+  if ($datosFinales["apellido"] == "") {
+    $errores["apellido"] = "Hubo error en el apellido porque esta vacio";
+  } else if (ctype_alpha($datosFinales["apellido"]) == false) {
+    $errores["apellido"] = "Hubo error en el apellido porque tiene caracteres que no son alfabeticos";
+  }
+
+  if ($datosFinales["password"] == "") {
+    $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
+  }
+  else if (strlen($datosFinales["password"]) < 8) {
+      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres";
+  }
+  else if (!preg_match("#[0-9]+#", $datosFinales["password"])) {
+      $errores["password"] = "La contrasenia debe tener al menos un numero!";
+  }
+  else if (!preg_match("#[A-Z]+#", $datosFinales["password"])) {
+      $errores["password"] = "La contrasenia debe tener al menos una mayuscula!";
+  }
+  else if (!preg_match("#[a-z]+#", $datosFinales["password"])) {
+      $errores["password"] = "La contrasenia debe tener al menos una minuscula!";
+  }
+
+  if ($datosFinales["email"] == "") {
+    $errores["email"] = "Hubo error en el email porque esta vacio";
+  }
+  else if ( filter_var($datosFinales["email"], FILTER_VALIDATE_EMAIL) == false) {
+    $errores["email"] = "El email no es un email";
+  }
+
+  elseif ( buscarPorEmail($datosFinales["email"] ) != NULL) {
+    $errores["email"]= "El Mail ya esta en uso.";
+  }
+
   if($_FILES["avatar"]["error"] != 0){
     $errores["avatar"] = "Hubo un error en la carga.";
   } else{
@@ -25,6 +65,11 @@ function validarDatosRegistrate(){
     }
   }
 
+    return $errores;
+}
+
+
+/*
   if (strlen($username)==0) {
     $errores[]="No completaste el username.";
   }
@@ -55,10 +100,10 @@ function validarDatosRegistrate(){
   }
 
   return $errores;
-}
+}*/
 
 
-function validarDatosLogin(){
+function validarDatosLogin($datos){
   $errores=[];
   $email=$_POST["email"];
   $contraseña=$_POST["contraseña"];

@@ -4,19 +4,20 @@ require_once("funciones.php");
 
 $errores=[];
 
-$usernameDefault="";
+$nombreDefault="";
 $apellidoDefault="";
 $emailDefault="";
 
-if($_POST){
 
+if($_POST){
 
   $errores=validarDatosRegistrate($_POST);
 
-  $usernameDefault = $_POST["nombre"];
+  $nombreDefault = $_POST["nombre"];
   $apellidoDefault = $_POST["apellido"];
   $emailDefault = $_POST["email"];
-  $contraseña= $_POST["contraseña"];
+
+
 
   if(empty($errores)){
     $usuario= armarUsuario();
@@ -28,9 +29,10 @@ if($_POST){
   }
 
   //lo voy a reemplazar para que se marque el error en el lugar que corresponde//
-  foreach($errores as $error){
+  /*foreach($errores as $error){
     echo $error."<br>";
   }
+  */
 }
 ?>
 
@@ -88,22 +90,67 @@ if($_POST){
         </div>
 
         <form id="formulario" class="IngresarDatos" action="registrate.php" method="post" enctype="multipart/form-data">
+
+          <?php if ( isset($errores["nombre"]) ) : ?>
+          <p class="nombre">
+            <label class="error" for="nombre"></label>
+            <input type="text" name="nombre" placeholder="Nombre" value="">
+          </p>
+          <p class="mensaje-error">
+            <?=$errores["nombre"]?>
+          </p>
+        <?php else : ?>
           <p class="nombre">
             <label class="completar" for="nombre"></label>
-            <input type="text" name="nombre" placeholder="Nombre" value="<?=$usernameDefault?>" required>
+            <input type="text" name="nombre" placeholder="Nombre" value="<?=$nombreDefault?>" >
           </p>
+        <?php endif; ?>
+
+      <?php if ( isset($errores["apellido"]) ) : ?>
+          <p class="apellido">
+            <label class="error" for="apellido"></label>
+            <input type="text" name="apellido" placeholder="Apellido" value="">
+          </p>
+          <p class="mensaje-error">
+            <?=$errores["apellido"]?>
+          </p>
+        <?php else : ?>
           <p class="apellido">
             <label class="completar" for="apellido"></label>
-            <input type="text" name="apellido" placeholder="Apellido" value="<?=$apellidoDefault?>" required>
+            <input type="text" name="apellido" placeholder="Apellido" value="<?=$apellidoDefault?>">
           </p>
+        <?php endif; ?>
+
+        <?php if ( isset($errores["email"]) ) : ?>
+          <p class="email">
+            <label class="error" for="email"></label>
+            <input type="email" name="email" placeholder="Email" value="">
+          </p>
+          <p class="mensaje-error">
+            <?=$errores["email"]?>
+          </p>
+        <?php else : ?>
           <p class="email">
             <label class="completar" for="email"></label>
-            <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>" required>
+            <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>">
           </p>
+        <?php endif; ?>
+
+        <?php if ( isset($errores["password"]) ) : ?>
+          <p class="contraseña">
+            <label class="error" for="contraseña"></label>
+            <input type="password" name="password" placeholder="Contraseña" value="" >
+          </p>
+          <p class="mensaje-error">
+            <?=$errores["password"]?>
+          </p>
+        <?php else : ?>
           <p class="contraseña">
             <label class="completar" for="contraseña"></label>
-            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Contraseña" value="" >
           </p>
+          <?php endif; ?>
+
           <p class="subirFoto">
             <input type="file" name="avatar" placeholder="avatar" >
           </p>
@@ -124,7 +171,6 @@ if($_POST){
           </div>
 
         <button form="formulario" class="registrate" type="submit" name="registrate">Registrate</button>
-
 
         <div class="cuenta">
           <div class="notenescuenta">

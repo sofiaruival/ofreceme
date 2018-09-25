@@ -1,3 +1,12 @@
+.error {
+  border: 1px solid red;
+}
+
+.mensaje-error {
+  color: red;
+  font-size: 12px;
+}
+
 *{
   font-family: 'Nunito', sans-serif;
   box-sizing: border-box;
