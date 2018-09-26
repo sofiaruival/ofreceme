@@ -104,6 +104,43 @@ function validarDatosRegistrate($datos){
 
 
 function validarDatosLogin($datos){
+  $datosFinales =[];
+  $errores=[];
+
+  foreach ($datos as $posicion => $dato) {
+    $datosFinales[$posicion] = trim($dato);
+  }
+
+    if ($datosFinales["password"] == "") {
+      $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
+    }
+    else if (strlen($datosFinales["password"]) < 8) {
+        $errores["password"] = "La contrasenia debe tener al menos 8 caracteres";
+    }
+    else if (!preg_match("#[0-9]+#", $datosFinales["password"])) {
+        $errores["password"] = "La contrasenia debe tener al menos un numero!";
+    }
+    else if (!preg_match("#[A-Z]+#", $datosFinales["password"])) {
+        $errores["password"] = "La contrasenia debe tener al menos una mayuscula!";
+    }
+    else if (!preg_match("#[a-z]+#", $datosFinales["password"])) {
+        $errores["password"] = "La contrasenia debe tener al menos una minuscula!";
+    }
+
+    if ($datosFinales["email"] == "") {
+      $errores["email"] = "Hubo error en el email porque esta vacio";
+    }
+    else if ( filter_var($datosFinales["email"], FILTER_VALIDATE_EMAIL) == false) {
+      $errores["email"] = "El email no es un email";
+    }
+
+    elseif ( buscarPorEmail($datosFinales["email"] ) != NULL) {
+      $errores["email"]= "El Mail ya esta en uso.";
+    }
+
+    return $errores;
+}
+/*
   $errores=[];
   $email=$_POST["email"];
   $contraseña=$_POST["contraseña"];
@@ -122,7 +159,7 @@ function validarDatosLogin($datos){
   }
 
   return $errores;
-}
+}*/
 
 function armarUsuario(){
   return[

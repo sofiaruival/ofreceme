@@ -1,5 +1,24 @@
 <?php
+
+require_once("funciones.php");
+
+$errores=[];
 $emailDefault="";
+
+
+if($_POST){
+
+  $errores=validarDatosLogin($_POST);
+  $emailDefault = $_POST["email"];
+
+  if(empty($errores)){
+    header('Location: index.php');
+    exit;
+  }
+}
+?>
+
+/*$emailDefault="";
 
 if($_POST){
   include_once("funciones.php");
@@ -8,10 +27,11 @@ if($_POST){
     header('Location: index.php');
     exit;
   }
+
   foreach($errores as $error){
     echo $error."<br>";
   }
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -63,16 +83,38 @@ if($_POST){
           <hr>
         </div>
 
-        <form id="formulario" class="IngresarDatos" action="login.php" method="post">
-          <p class="email">
-            <label class="completar" for="email"></label>
-            <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>" required>
-          </p>
-          <p class="contraseña">
-            <label class="completar" for="contraseña"></label>
-            <input type="password" name="contraseña" placeholder="Contraseña"required>
-          </p>
+        <form id="formulario" class="IngresarDatos" action="login.php" method="post" enctype="multipart/form-data">
+          <?php if ( isset($errores["email"]) ) : ?>
+            <p class="email">
+              <label class="error" for="email"></label>
+              <input class="error" type="email" name="email" placeholder="Email" value="">
+            </p>
+            <p class="mensaje-error">
+              <?=$errores["email"]?>
+            </p>
+          <?php else : ?>
+            <p class="email">
+              <label class="completar" for="email"></label>
+              <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>">
+            </p>
+          <?php endif; ?>
+
+          <?php if ( isset($errores["password"]) ) : ?>
+            <p class="contraseña">
+              <label class="error" for="contraseña"></label>
+              <input class="error" type="password" name="password" placeholder="Contraseña" value="" >
+            </p>
+            <p class="mensaje-error">
+              <?=$errores["password"]?>
+            </p>
+          <?php else : ?>
+            <p class="contraseña">
+              <label class="completar" for="contraseña"></label>
+              <input type="password" name="password" placeholder="Contraseña" value="" >
+            </p>
+            <?php endif; ?>
         </form>
+
         <div class="checkbox">
           <div class="recordame">
             <p>

@@ -94,7 +94,7 @@ if($_POST){
           <?php if ( isset($errores["nombre"]) ) : ?>
           <p class="nombre">
             <label class="error" for="nombre"></label>
-            <input type="text" name="nombre" placeholder="Nombre" value="">
+            <input class="error" type="text" name="nombre" placeholder="Nombre" value="">
           </p>
           <p class="mensaje-error">
             <?=$errores["nombre"]?>
@@ -109,7 +109,7 @@ if($_POST){
       <?php if ( isset($errores["apellido"]) ) : ?>
           <p class="apellido">
             <label class="error" for="apellido"></label>
-            <input type="text" name="apellido" placeholder="Apellido" value="">
+            <input class="error" type="text" name="apellido" placeholder="Apellido" value="">
           </p>
           <p class="mensaje-error">
             <?=$errores["apellido"]?>
@@ -124,7 +124,7 @@ if($_POST){
         <?php if ( isset($errores["email"]) ) : ?>
           <p class="email">
             <label class="error" for="email"></label>
-            <input type="email" name="email" placeholder="Email" value="">
+            <input class="error" type="email" name="email" placeholder="Email" value="">
           </p>
           <p class="mensaje-error">
             <?=$errores["email"]?>
@@ -139,7 +139,7 @@ if($_POST){
         <?php if ( isset($errores["password"]) ) : ?>
           <p class="contraseña">
             <label class="error" for="contraseña"></label>
-            <input type="password" name="password" placeholder="Contraseña" value="" >
+            <input class="error" type="password" name="password" placeholder="Contraseña" value="" >
           </p>
           <p class="mensaje-error">
             <?=$errores["password"]?>
@@ -164,6 +164,7 @@ if($_POST){
             </p>
           </div>
         </div>
+
           <div class="terminosYcondiciones">
             <p>
               Ver los <a href="#">Términos y condiciones</a>
