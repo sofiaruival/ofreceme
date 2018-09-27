@@ -2,7 +2,7 @@
 
 require_once("funciones.php");
 
-$errores=[];
+//$errores=[];
 
 $nombreDefault="";
 $apellidoDefault="";
@@ -20,6 +20,8 @@ if($_POST){
 
 
   if(empty($errores)){
+    echo "hola";
+
     $usuario= armarUsuario();
     $usuario= crearUsuario($usuario);
     $ext=pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);

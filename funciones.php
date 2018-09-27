@@ -17,6 +17,7 @@ function validarDatosRegistrate($datos){
   $contraseña=$_POST["contraseña"];
 */
 
+  // VALIDACION NOMBRE
   if ($datosFinales["nombre"] == "") {
     $errores["nombre"] = "Hubo error en el nombre porque esta vacio";
   } else if (ctype_alpha($datosFinales["nombre"]) == false) {
