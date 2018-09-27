@@ -1,6 +1,13 @@
 <?php
   include_once("funciones.php");
   $usuarios = traerUsuarios();
+
+  if(estaLogueado){
+    //FALTA///
+  }
+
+  }
+$usuarioLogueado = traerUsuarioLogueado();
  ?>
 
 <!DOCTYPE html>

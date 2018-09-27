@@ -1,5 +1,7 @@
 
 <?php
+  session_start();
+
 function validarDatosRegistrate($datos){
 //agrego datos finales, asiq ue voya  tener que renonbrar los if de las validaciones//
   $datosFinales =[];
@@ -135,11 +137,37 @@ function validarDatosLogin($datos){
       $errores["email"] = "El email no es un email";
     }
 
-    elseif ( buscarPorEmail($datosFinales["email"] ) != NULL) {
-      $errores["email"]= "El Mail ya esta en uso.";
+    elseif ( buscarPorEmail($datosFinales["email"] )
+    if($ususarios==null) {
+      $errores["email"]= "El Mail no existe";
     }
 
+     if($datos["password"]==""){
+       $errores["password"]= "Dejaste pa Pass vacia";
+     }
+     else{
+       if ($usuario != null){
+         //FALTA//
+       }
+     }
+
+
+
     return $errores;
+}
+
+function logear($email){
+  $_SESSION["usuarioLogueado"]=$email;
+}
+
+function estaLogueado(){
+  if (isset($_session["usuarioLogueado"])){
+    return true;
+  }
+  else {
+    return false;
+  }
+
 }
 /*
   $errores=[];
