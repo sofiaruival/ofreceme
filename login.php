@@ -12,6 +12,8 @@ if($_POST){
   $emailDefault = $_POST["email"];
 
   if(empty($errores)){
+    logear($_POST["email"]);
+
     header('Location: index.php');
     exit;
   }
