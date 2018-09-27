@@ -68,11 +68,11 @@ if($_POST){
 
         <nav class="nav-principal">
   				<ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="#">Ofertar</a></li>
             <li><a href="#">Ofertas</a></li>
-            <li><a href="login.html">Ingresar</a></li>
-            <li><a href="registrate.html">Registrate</a></li>
+            <li><a href="login.php">Ingresar</a></li>
+            <li><a href="registrate.php">Registrate</a></li>
             <li><a href="#">Logout</a></li>
   				</ul>
   			</nav>
@@ -93,7 +93,7 @@ if($_POST){
 
           <?php if ( isset($errores["nombre"]) ) : ?>
           <p class="nombre">
-            <label class="error" for="nombre"></label>
+
             <input class="error" type="text" name="nombre" placeholder="Nombre" value="">
           </p>
           <p class="mensaje-error">
@@ -101,14 +101,14 @@ if($_POST){
           </p>
         <?php else : ?>
           <p class="nombre">
-            <label class="completar" for="nombre"></label>
+
             <input type="text" name="nombre" placeholder="Nombre" value="<?=$nombreDefault?>" >
           </p>
         <?php endif; ?>
 
       <?php if ( isset($errores["apellido"]) ) : ?>
           <p class="apellido">
-            <label class="error" for="apellido"></label>
+
             <input class="error" type="text" name="apellido" placeholder="Apellido" value="">
           </p>
           <p class="mensaje-error">
@@ -116,14 +116,14 @@ if($_POST){
           </p>
         <?php else : ?>
           <p class="apellido">
-            <label class="completar" for="apellido"></label>
+
             <input type="text" name="apellido" placeholder="Apellido" value="<?=$apellidoDefault?>">
           </p>
         <?php endif; ?>
 
         <?php if ( isset($errores["email"]) ) : ?>
           <p class="email">
-            <label class="error" for="email"></label>
+
             <input class="error" type="email" name="email" placeholder="Email" value="">
           </p>
           <p class="mensaje-error">
@@ -131,14 +131,14 @@ if($_POST){
           </p>
         <?php else : ?>
           <p class="email">
-            <label class="completar" for="email"></label>
+
             <input type="email" name="email" placeholder="Email" value="<?=$emailDefault?>">
           </p>
         <?php endif; ?>
 
         <?php if ( isset($errores["password"]) ) : ?>
           <p class="contraseña">
-            <label class="error" for="contraseña"></label>
+
             <input class="error" type="password" name="password" placeholder="Contraseña" value="" >
           </p>
           <p class="mensaje-error">
@@ -146,7 +146,7 @@ if($_POST){
           </p>
         <?php else : ?>
           <p class="contraseña">
-            <label class="completar" for="contraseña"></label>
+
             <input type="password" name="password" placeholder="Contraseña" value="" >
           </p>
           <?php endif; ?>
@@ -156,14 +156,17 @@ if($_POST){
           </p>
         </form>
 
+
+        <!--
+          TODO: NICE TO HAVE.
         <div class="checkbox">
           <div class="novedades">
             <p>
-              <label for="novedades"></label>
+
               <input type="checkbox" name="novedades" value="novedades">Quiero reccibir novedades por email
             </p>
           </div>
-        </div>
+        </div> -->
 
           <div class="terminosYcondiciones">
             <p>

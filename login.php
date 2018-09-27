@@ -18,21 +18,7 @@ if($_POST){
 }
 ?>
 
-/*$emailDefault="";
 
-if($_POST){
-  include_once("funciones.php");
-  $errores=validarDatosLogin();
-  if(empty($errores)){
-    header('Location: index.php');
-    exit;
-  }
-
-  foreach($errores as $error){
-    echo $error."<br>";
-  }
-}*/
-?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

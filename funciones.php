@@ -218,7 +218,7 @@ function buscarPorEmail($email) {
 }
 
 
-function buscarPorEmail($id) {
+function buscarPorId($id) {
   $usuarios= file_get_contents("usuarios.json");
   $usuariosArray= json_decode($usuarios, true);
   foreach ($usuariosArray as $usuario) {
