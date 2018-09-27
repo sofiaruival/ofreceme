@@ -107,6 +107,7 @@ function validarDatosRegistrate($datos){
 
 
 function validarDatosLogin($datos){
+  $usuarioActual;
   $datosFinales =[];
   $errores=[];
 
@@ -114,46 +115,28 @@ function validarDatosLogin($datos){
     $datosFinales[$posicion] = trim($dato);
   }
 
-    if ($datosFinales["password"] == "") {
-      $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
-    }
-    else if (strlen($datosFinales["password"]) < 8) {
-        $errores["password"] = "La contrasenia debe tener al menos 8 caracteres";
-    }
-    else if (!preg_match("#[0-9]+#", $datosFinales["password"])) {
-        $errores["password"] = "La contrasenia debe tener al menos un numero!";
-    }
-    else if (!preg_match("#[A-Z]+#", $datosFinales["password"])) {
-        $errores["password"] = "La contrasenia debe tener al menos una mayuscula!";
-    }
-    else if (!preg_match("#[a-z]+#", $datosFinales["password"])) {
-        $errores["password"] = "La contrasenia debe tener al menos una minuscula!";
-    }
-
     if ($datosFinales["email"] == "") {
       $errores["email"] = "Hubo error en el email porque esta vacio";
     }
     else if ( filter_var($datosFinales["email"], FILTER_VALIDATE_EMAIL) == false) {
       $errores["email"] = "El email no es un email";
     }
-
-    elseif ( buscarPorEmail($datosFinales["email"] )
-    if($ususarios==null) {
-      $errores["email"]= "El Mail no existe";
+    if ($datosFinales["password"] == "") {
+      $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
     }
 
-     if($datos["password"]==""){
-       $errores["password"]= "Dejaste pa Pass vacia";
-     }
-     else{
-       if ($usuario != null){
-         //FALTA//
-       }
-     }
+    if($errores["email"]==NULL){
+      $usuarioActual = buscarPorEmail($datosFinales["email"]);
 
+      if($usuarioActual == NULL) {
+          $errores["email"] = "El email no existe";
+      }
+      else if(!password_verify($datosFinales["password"],$usuarioActual["password"])) {
+          $errores["password"] = "Password incorrecto";
+      }
+    }
 
-
-    return $errores;
+  return $errores;
 }
 
 function logear($email){

@@ -9,6 +9,7 @@ $emailDefault="";
 if($_POST){
 
   $errores=validarDatosLogin($_POST);
+  var_dump($errores);
   $emailDefault = $_POST["email"];
 
   if(empty($errores)){
