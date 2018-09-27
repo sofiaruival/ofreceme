@@ -14,6 +14,7 @@
     <ul>
       <?php foreach ($usuarios as $usuario) : ?>
         <li>
+          <a href="detalleUsuario.php?id=<?=$usuario["id"]  ?>">
           <?php echo $usuario["nombre"] . " " . $usuario["apellido"]; ?>
         </li>
       <?php endforeach; ?>

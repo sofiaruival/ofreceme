@@ -161,8 +161,22 @@ function validarDatosLogin($datos){
   return $errores;
 }*/
 
+function proximoId(){
+  $json= file_get_contents("usuarios.json");
+  if ($json ==""){
+    return 1;
+  }
+
+  $usuarios= json_decode($json, true);
+
+  $ultimo= array_pop($ususarios);
+
+  return $ultimo["id"]+1;
+}
+
 function armarUsuario(){
   return[
+    "id"=> proximoId(),
     "nombre"=> trim($_POST["nombre"]),
     "apellido"=> trim($_POST["apellido"]),
     "email"=> trim($_POST["email"]),
@@ -203,5 +217,16 @@ function buscarPorEmail($email) {
   return null;
 }
 
+
+function buscarPorEmail($id) {
+  $usuarios= file_get_contents("usuarios.json");
+  $usuariosArray= json_decode($usuarios, true);
+  foreach ($usuariosArray as $usuario) {
+   if ($id==$usuario["id"]) {
+       return $usuario;
+   }
+  }
+  return null;
+}
 
 ?>
