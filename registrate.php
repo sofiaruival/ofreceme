@@ -20,7 +20,7 @@ if($_POST){
 
 
   if(empty($errores)){
-    echo "hola";
+
 
     $usuario= armarUsuario();
     $usuario= crearUsuario($usuario);
