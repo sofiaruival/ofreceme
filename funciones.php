@@ -2,8 +2,12 @@
 <?php
   session_start();
 
+//IF PARA RECORDAME
+  if(isset($_COOKIE["usuarioLogueado"])&& ISSET($_SESSION["usuarioLogueado"])){
+    $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
+  }
+//VALIDACION REGISTRATE
 function validarDatosRegistrate($datos){
-//agrego datos finales, asiq ue voya  tener que renonbrar los if de las validaciones//
   $datosFinales =[];
   $errores=[];
 
@@ -11,15 +15,7 @@ function validarDatosRegistrate($datos){
     $datosFinales[$posicion] = trim($dato);
   }
 
-//esto lo voy a cambiara como lo puso Dario, en registrate en vez de en funciones//
-/*
-  $nombre= $_POST["nombre"];
-  $email=$_POST["email"];
-  $apellido=$_POST["apellido"];
-  $contraseña=$_POST["contraseña"];
-*/
 
-  // VALIDACION NOMBRE
   if ($datosFinales["nombre"] == "") {
     $errores["nombre"] = "Hubo error en el nombre porque esta vacio";
   } else if (ctype_alpha($datosFinales["nombre"]) == false) {
@@ -72,40 +68,7 @@ function validarDatosRegistrate($datos){
 }
 
 
-/*
-  if (strlen($username)==0) {
-    $errores[]="No completaste el username.";
-  }
-  elseif (strlen($username)<5) {
-    $errores[]="El username tiene que tener al menos 5 caracteres.";// code...// code...
-  }
-  if (strlen($apellido)==0) {
-    $errores[]="No completaste el apellido.";
-  }
-  elseif (strlen($apellido)<5) {
-    $errores[]="El apellido tiene que tener al menos 5 caracteres.";// code...// code...
-  }
-  if (strlen($email)==0) {
-    $errores[]="No completaste el username.";
-  }
-  elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-    $errores[]="No completaste el email.";
-  }
-  elseif ( buscarPorEmail($email["email"] ) != NULL) {
-    $errores["email"]= "El Mail ya esta en uso.";
-  }
-
-  if (strlen($contraseña)==0) {
-    $errores[]="No completaste la contraseña.";
-  }
-  elseif (strlen($contraseña)<5) {
-    $errores[]="La contraseña tiene que tener al menos 5 caracteres.";// code...// code...
-  }
-
-  return $errores;
-}*/
-
-
+//VALIDACION LOGIN
 function validarDatosLogin($datos){
   $usuarioActual;
   $datosFinales =[];
@@ -139,40 +102,26 @@ function validarDatosLogin($datos){
   return $errores;
 }
 
-function logear($email){
+//YA VALIDADO LOGUEAR
+function loguear($email){
   $_SESSION["usuarioLogueado"]=$email;
 }
 
-function estaLogueado(){
-  if (isset($_session["usuarioLogueado"])){
-    return true;
-  }
-  else {
-    return false;
-  }
-
+//SI USURIO ESTA LOGUEADO LO USO PARA??
+function estaLogueado() {
+  return isset($_SESSION["usuarioLogueado"]);
 }
-/*
-  $errores=[];
-  $email=$_POST["email"];
-  $contraseña=$_POST["contraseña"];
 
-  if (strlen($email)==0) {
-    $errores[]="No completaste el username.";
-  }
-  elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == false){
-    $errores[]="No completaste el email.";
-  }
-  if (strlen($contraseña)==0) {
-    $errores[]="No completaste la contraseña.";
-  }
-  elseif (strlen($contraseña)<5) {
-    $errores[]="La contraseña tiene que tener al menos 5 caracteres.";// code...// code...
-  }
+// LA USO PARA TRAER LA FOTO AL HEADER CUANDO YA SE LOGUEO
+function traerFoto() {
+  $usuario = buscarPorEmail($_SESSION["usuarioLogueado"]);
 
-  return $errores;
-}*/
+  $foto = glob("img/" . $usuario["email"] . "*")[0];
 
+  return $foto;
+}
+
+// PARA QUE EL LISTADO DE USUARIOS EMPIECE CON ID 1 SI ESTA VACIO Y SE INCREMENTE EN 1
 function proximoId(){
   $json= file_get_contents("usuarios.json");
   if ($json ==""){
@@ -185,7 +134,7 @@ function proximoId(){
 
   return $ultimo["id"]+1;
 }
-
+//ARMA EL USUARIO PARA GUARDARLO EN LISTADO DE USUARIOS
 function armarUsuario(){
   return[
     "id"=> proximoId(),
@@ -195,7 +144,7 @@ function armarUsuario(){
     "contraseña"=> password_hash($_POST["contraseña"],PASSWORD_DEFAULT),
   ];
 }
-
+//CREA /AGREGA UN USUARIO NUEVO AL LISTADO DE USUARIOS
 function crearUsuario($usuario) {
 
   $usuarios = file_get_contents("usuarios.json");
@@ -212,12 +161,14 @@ function crearUsuario($usuario) {
   file_put_contents("usuarios.json", $usuarios);
 }
 
+//TRAE UN USUARIO DE USUARIOS J.SON
 function traerUsuarios() {
   $usuarios = file_get_contents("usuarios.json");
   $usuarios = json_decode($usuarios, true);
   return $usuarios;
 }
 
+//BUSCA X EMAIL
 function buscarPorEmail($email) {
   $usuarios= file_get_contents("usuarios.json");
   $usuariosArray= json_decode($usuarios, true);
@@ -229,14 +180,19 @@ function buscarPorEmail($email) {
   return null;
 }
 
+//BUSCA POR ID
+function buscarPorID($id) {
+ $usuarios= file_get_contents("usuarios.json");
+ $usuariosArray= json_decode($usuarios, true);
 
-function buscarPorId($id) {
-  $usuarios= file_get_contents("usuarios.json");
-  $usuariosArray= json_decode($usuarios, true);
-  foreach ($usuariosArray as $usuario) {
-   if ($id==$usuario["id"]) {
-       return $usuario;
-   }
+ if ($usuariosArray == null) {
+   return null;
+ }
+
+ foreach ($usuariosArray as $usuario){
+   if($id==$usuario["id"]){
+     return $usuario;
+    }
   }
   return null;
 }

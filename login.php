@@ -5,16 +5,21 @@ require_once("funciones.php");
 $errores=[];
 $emailDefault="";
 
-
+//si vino x POST
 if($_POST){
-
+//VALIDACION LOGIN
   $errores=validarDatosLogin($_POST);
   var_dump($errores);
   $emailDefault = $_POST["email"];
 
+//si no hay errores entonces LOGUEAR
   if(empty($errores)){
     logear($_POST["email"]);
-
+//si esta clickeado RECORDAME
+  if (isset($_POST[recordame])){
+      setcookie("usuarioLogueado", $_POST["email"], time() + 60 * 60 * 24 * 7);
+  }
+//ya LOGUEADO REDIRIGIR A INICIO
     header('Location: index.php');
     exit;
   }
@@ -34,32 +39,9 @@ if($_POST){
     <title>login</title>
   </head>
   <body>
+<!--INCLUI EL HEADER QUE ESTA EN PAG SEPARADA!-->
+      <?php include("header.php") ?>
 
-      <header>
-        <ul>
-          <li>
-            <a href="index.php"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
-          </li>
-          <li>
-            <a href="index.php"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
-          </li>
-          <li>
-            <a href="#" class="toggle-nav">
-      				<span class="fa fa-bars"></span>
-  			    </a>
-          </li>
-        </ul>
-        <nav class="nav-principal">
-  				<ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="#">Ofertar</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="login.php">Ingresar</a></li>
-            <li><a href="registrate.php">Registrate</a></li>
-            <li><a href="#">Logout</a></li>
-  				</ul>
-  			</nav>
-      </header>
   <div class="container">
       <section>
         <h1>Ingresar a mi cuenta</h1>
@@ -108,7 +90,7 @@ if($_POST){
           <div class="recordame">
             <p>
               <label for="recordame"></label>
-              <input type="checkbox" name="Recordame" value="recordame">Recordame
+              <input type="checkbox" class=form control name="Recordame" value="recordame">Recordame
             </p>
           </div>
           <div class="olvide">

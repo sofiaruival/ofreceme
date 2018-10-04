@@ -8,9 +8,9 @@ $nombreDefault="";
 $apellidoDefault="";
 $emailDefault="";
 
-
+// Vine por POST?
 if($_POST){
-
+// VALIDAR
   $errores=validarDatosRegistrate($_POST);
 
   $nombreDefault = $_POST["nombre"];
@@ -20,21 +20,20 @@ if($_POST){
 
 
   if(empty($errores)){
-
+		// REGISTRAR
 
     $usuario= armarUsuario();
-    $usuario= crearUsuario($usuario);
+    crearUsuario($usuario);
+
+    //GUARDAR LA FOTO
     $ext=pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
     move_uploaded_file($_FILES["avatar"]["tmp_name"], "img/" . trim($_POST["email"]) . "." . $ext);
+
+    // REDIRIGIRLO
     header('Location: index.php');
     exit;
   }
 
-  //lo voy a reemplazar para que se marque el error en el lugar que corresponde//
-  /*foreach($errores as $error){
-    echo $error."<br>";
-  }
-  */
 }
 ?>
 
@@ -50,35 +49,8 @@ if($_POST){
     <title>registrate</title>
   </head>
   <body>
-
-      <header>
-        <ul>
-          <li>
-            <a href="index.html"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
-          </li>
-          <li>
-            <a href="index.html"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
-          </li>
-
-          <li>
-            <a href="#" class="toggle-nav">
-      				<span class="fa fa-bars"></span>
-
-  			    </a>
-          </li>
-        </ul>
-
-        <nav class="nav-principal">
-  				<ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="#">Ofertar</a></li>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="login.php">Ingresar</a></li>
-            <li><a href="registrate.php">Registrate</a></li>
-            <li><a href="#">Logout</a></li>
-  				</ul>
-  			</nav>
-      </header>
+    <!--INCLUI EL HEADER QUE ESTA EN PAG SEPARADA!-->
+    <?php include("header.php") ?>
 <br>
      <div class="container">
       <section>
