@@ -32,16 +32,20 @@ function validarDatosRegistrate($datos){
     $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
   }
   else if (strlen($datosFinales["password"]) < 8) {
-      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres";
+      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres,
+      un número y una minúscula y una mayuscula.";
   }
   else if (!preg_match("#[0-9]+#", $datosFinales["password"])) {
-      $errores["password"] = "La contrasenia debe tener al menos un numero!";
+      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres,
+      un número y una minúscula y una mayuscula.";
   }
   else if (!preg_match("#[A-Z]+#", $datosFinales["password"])) {
-      $errores["password"] = "La contrasenia debe tener al menos una mayuscula!";
+      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres,
+      un número y una minúscula y una mayuscula.";
   }
   else if (!preg_match("#[a-z]+#", $datosFinales["password"])) {
-      $errores["password"] = "La contrasenia debe tener al menos una minuscula!";
+      $errores["password"] = "La contrasenia debe tener al menos 8 caracteres,
+      un número y una minúscula y una mayuscula.";
   }
 
   if ($datosFinales["email"] == "") {
