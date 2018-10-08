@@ -6,7 +6,36 @@
   if(isset($_COOKIE["usuarioLogueado"])&& ISSET($_SESSION["usuarioLogueado"])){
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
-//VALIDACION REGISTRATE
+
+/** function: validarDatosRegistrate.
+ *
+ * Valida datos de registración.
+ *
+ * @param array   $datos  Colección de elementos para verificar.
+ *                La función verificará los elentos:
+ *                nombre, apellido, email, password.
+ *
+ *            VERIFICACIONES:
+ *                nombre: Que no esté vacio el campo.
+ *                nombre: Que posea solo letras.
+ *
+ *                apellido: Que no se encuentre vacío.
+ *                apellido: Que posea solo letras.
+ *
+ *                email: Que no se encuentre vacío.
+ *                email: Que posea formato de email.
+ *                email: Que el mail no se encuentre ya registrado en el back-end.
+ *
+ *                password: Que no se encuentre vacío.
+ *                password: Que corresponda email vs. password.
+ *
+ * @throws.       No arroja excepciones.
+ * @author        Sofia, Lucila, Gregorio.
+ * @return array  Devuelve un array asociativo cargado con los errores
+ *                correspondientes a cada valor verificado. Si el array vuelve
+ *                vacío significa que no hubo errores.
+ */
+
 function validarDatosRegistrate($datos){
   $datosFinales =[];
   $errores=[];
@@ -73,6 +102,30 @@ function validarDatosRegistrate($datos){
 
 
 //VALIDACION LOGIN
+
+/** function: validarDatosLogin.
+ *
+ * Valida datos de login a la aplicación.
+ *
+ * @param array   $datos  Colección de elementos para verificar.
+ *                La función verificará los elentos:
+ *                email, password.
+ *
+ *                VERIFICACIONES:
+ *                email: Que no se encuentre vacío.
+ *                email: Que posea formato de email.
+ *                email: Que el mail se encuentre registrado en el back-end.
+ *
+ *                password: Que no se encuentre vacío.
+ *                password: Que corresponda email vs. password.
+ *
+ * @throws.       No arroja excepciones.
+ * @author        Sofia, Lucila, Gregorio.
+ * @return array  Devuelve un array asociativo cargado con los errores
+ *                correspondientes a cada valor verificado. Si el array vuelve
+ *                vacío significa que no hubo errores.
+ */
+
 function validarDatosLogin($datos){
   $usuarioActual;
   $datosFinales =[];
