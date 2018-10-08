@@ -163,3 +163,7 @@ if($_POST){
 
   </body>
 </html>
+
+<script type="text/javascript">
+  document.getElementsByName('input').style.color='black';
+</script>

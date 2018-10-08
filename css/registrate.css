@@ -67,12 +67,12 @@ p.nombre input {
   padding: 10px 20px;
   margin: 0px 0;
   font-size: 15px;
-  color: #00000045;
+  /*color: #00000045;*/
   border-radius: 10px;
   }
 
 p.nombre input value{
-  color: #00000045;
+  /* color: #00000045; */
 }
 
 
@@ -81,7 +81,7 @@ p.apellido input {
     padding: 10px 20px;
     margin: 0px 0;
     font-size: 15px;
-    color: #00000045;
+    /* color: #00000045; */
     border-radius: 10px;
     }
 
@@ -90,7 +90,7 @@ p.email input{
   padding: 10px 20px;
   margin: 0px 0;
   font-size: 15px;
-  color: #00000045;
+  /* color: #00000045; */
   border-radius: 10px;
 }
 
@@ -99,7 +99,7 @@ p.contraseña input {
   padding: 10px 20px;
   margin: 0px 0;
   font-size: 15px;
-  color: #00000045;
+  /* color: #00000045; */
   border-radius: 10px;
   }
 
