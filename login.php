@@ -1,7 +1,7 @@
 <?php
 
 require_once("funciones.php");
-
+//    var_dump($_POST);exit;
 $errores=[];
 $emailDefault="";
 
@@ -9,14 +9,15 @@ $emailDefault="";
 if($_POST){
 //VALIDACION LOGIN
   $errores=validarDatosLogin($_POST);
-  var_dump($errores);
+
   $emailDefault = $_POST["email"];
 
 //si no hay errores entonces LOGUEAR
+  //var_dump(empty($errores));
   if(empty($errores)){
-    logear($_POST["email"]);
+    loguear($_POST["email"]);
 //si esta clickeado RECORDAME
-  if (isset($_POST[recordame])){
+  if (isset($_POST["recordame"])){
       setcookie("usuarioLogueado", $_POST["email"], time() + 60 * 60 * 24 * 7);
   }
 //ya LOGUEADO REDIRIGIR A INICIO
@@ -90,7 +91,7 @@ if($_POST){
           <div class="recordame">
             <p>
               <label for="recordame"></label>
-              <input type="checkbox" class=form control name="Recordame" value="recordame">Recordame
+              <input form="formulario" type="checkbox" class=form control name="recordame" value="recordame">Recordame
             </p>
           </div>
           <div class="olvide">

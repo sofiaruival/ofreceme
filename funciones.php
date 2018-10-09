@@ -3,7 +3,7 @@
   session_start();
 
 //IF PARA RECORDAME
-  if(isset($_COOKIE["usuarioLogueado"])&& ISSET($_SESSION["usuarioLogueado"])){
+  if(isset($_COOKIE["usuarioLogueado"])&& !ISSET($_SESSION["usuarioLogueado"])){
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
 
@@ -145,13 +145,13 @@ function validarDatosLogin($datos){
       $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
     }
 
-    if($errores["email"]==NULL){
+    if(!isset($errores["email"])){
       $usuarioActual = buscarPorEmail($datosFinales["email"]);
-
       if($usuarioActual == NULL) {
           $errores["email"] = "El email no existe";
       }
-      else if(!password_verify($datosFinales["password"],$usuarioActual["password"])) {
+      else if(!password_verify($datosFinales["password"],
+      $usuarioActual["password"])) {
           $errores["password"] = "Password incorrecto";
       }
     }
@@ -162,6 +162,7 @@ function validarDatosLogin($datos){
 //YA VALIDADO LOGUEAR
 function loguear($email){
   $_SESSION["usuarioLogueado"]=$email;
+
 }
 
 //SI USURIO ESTA LOGUEADO LO USO PARA??
@@ -180,13 +181,17 @@ function traerFoto() {
 
 // PARA QUE EL LISTADO DE USUARIOS EMPIECE CON ID 1 SI ESTA VACIO Y SE INCREMENTE EN 1
 function proximoId(){
+  if (!file_exists ( "usuarios.json" )){
+      $file = fopen("usuarios.json","w");
+  }
   $json= file_get_contents("usuarios.json");
   if ($json ==""){
     return 1;
   }
 
   $usuarios= json_decode($json, true);
-
+  //var_dump($usuarios);
+  //var_dump(array_pop($usuarios));
   $ultimo= array_pop($ususarios);
 
   return $ultimo["id"]+1;
@@ -198,7 +203,7 @@ function armarUsuario(){
     "nombre"=> trim($_POST["nombre"]),
     "apellido"=> trim($_POST["apellido"]),
     "email"=> trim($_POST["email"]),
-    "contraseña"=> password_hash($_POST["contraseña"],PASSWORD_DEFAULT),
+    "password"=> password_hash($_POST["password"],PASSWORD_DEFAULT),
   ];
 }
 //CREA /AGREGA UN USUARIO NUEVO AL LISTADO DE USUARIOS
@@ -227,6 +232,9 @@ function traerUsuarios() {
 
 //BUSCA X EMAIL
 function buscarPorEmail($email) {
+  if (!file_exists ( "usuarios.json" )){
+    return null;
+  }
   $usuarios= file_get_contents("usuarios.json");
   $usuariosArray= json_decode($usuarios, true);
   foreach ($usuariosArray as $usuario) {
