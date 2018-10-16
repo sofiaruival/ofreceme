@@ -7,6 +7,17 @@
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
 
+  $dsn = "mysql:host=localhost;dbname=usuarios;port=3306;";
+  $usuario = "root";
+  $pass = "root";
+
+  try {
+    $db = new PDO($dsn, $usuario, $pass);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (\Exception $e) {
+    echo "Hubo un error";exit;
+  }
+
 /** function: validarDatosRegistrate.
  *
  * Valida datos de registración.
@@ -208,58 +219,49 @@ function armarUsuario(){
 }
 //CREA /AGREGA UN USUARIO NUEVO AL LISTADO DE USUARIOS
 function crearUsuario($usuario) {
+global $db;
+$consulta = $db->prepare("INSERT into usuarios values (default, :nombre, :apellido, :password, :email)");
 
-  $usuarios = file_get_contents("usuarios.json");
-  $usuarios = json_decode($usuarios, true);
+$consulta->bindValue(":nombre", $usuario["nombre"]);
+$consulta->bindValue(":apellido", $usuario["apellido"]);
+$consulta->bindValue(":password", $usuario["password"]);
+$consulta->bindValue(":email", $usuario["email"]);
 
-  if($usuarios===NULL){
-    $usuarios=[];
-  }
-
-  $usuarios[]= $usuario;
-
-  $usuarios = json_encode($usuarios);
-
-  file_put_contents("usuarios.json", $usuarios);
+$consulta->execute();
 }
 
-//TRAE UN USUARIO DE USUARIOS J.SON
+
 function traerUsuarios() {
-  $usuarios = file_get_contents("usuarios.json");
-  $usuarios = json_decode($usuarios, true);
-  return $usuarios;
-}
+  global $db;
+  $consulta = $db->prepare("SELECT * FROM usuarios");
+
+  $consulta->execute();
+
+  return $consulta->fetchAll(PDO::FETCH_ASSOC);
+  }
 
 //BUSCA X EMAIL
 function buscarPorEmail($email) {
-  if (!file_exists ( "usuarios.json" )){
-    return null;
-  }
-  $usuarios= file_get_contents("usuarios.json");
-  $usuariosArray= json_decode($usuarios, true);
-  foreach ($usuariosArray as $usuario) {
-   if ($email==$usuario["email"]) {
-       return $usuario;
-   }
-  }
-  return null;
+  global $db;
+  $consulta = $db->prepare("SELECT * FROM usuarios WHERE email = :email");
+
+  $consulta->bindValue(":email", $email);
+
+  $consulta->execute();
+
+  return $consulta->fetch(PDO::FETCH_ASSOC);
 }
 
 //BUSCA POR ID
 function buscarPorID($id) {
- $usuarios= file_get_contents("usuarios.json");
- $usuariosArray= json_decode($usuarios, true);
+  global $db;
+  $consulta = $db->prepare("SELECT * FROM usuarios WHERE id = :id");
 
- if ($usuariosArray == null) {
-   return null;
- }
+  $consulta->bindValue(":id", $id);
 
- foreach ($usuariosArray as $usuario){
-   if($id==$usuario["id"]){
-     return $usuario;
-    }
+  $consulta->execute();
+
+  return $consulta->fetch(PDO::FETCH_ASSOC);
   }
-  return null;
-}
 
 ?>
