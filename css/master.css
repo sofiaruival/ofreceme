@@ -48,6 +48,7 @@ header{
 }
 
 header ul{
+  flex-basis: 65%;
   list-style-type: none;
   overflow: hidden;
   padding: 0;
@@ -60,6 +61,30 @@ header li{
 }
 
 .oculto{
+  display: none;
+}
+.top-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+div.bienvenida {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  color: lawngreen;
+  padding-right: 20px;
+  align-items: center;
+}
+.bienvenida img {
+  width: 50px;
+  height: 50px;
+  border-radius: 200px;
+  margin-right: 10px;
+}
+.bienvenida p {
   display: none;
 }
 
@@ -167,6 +192,9 @@ article a{
 }
 
 @media (min-width:768px){
+  .bienvenida p {
+    display: block;
+  }
 .toggle-nav{
   display: none;
 }
