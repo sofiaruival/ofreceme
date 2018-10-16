@@ -1,3 +1,7 @@
+<?php
+  include_once("./funciones.php");
+ ?>
+
 <header>
   <ul>
     <li>
@@ -24,9 +28,19 @@
       <li><a href="index.php">Inicio</a></li>
       <li><a href="#">Ofertar</a></li>
       <li><a href="#">Ofertas</a></li>
-      <li><a href="login.php">Ingresar</a></li>
-      <li><a href="registrate.php">Registrate</a></li>
-      <li><a href="#">Logout</a></li>
+
+      <?php if(estaLogueado() === FALSE): ?>
+          <?=var_dump(estaLogueado());?>
+          <li class="oculto"><a href="#">Logout</a></li>
+          <li><a href="login.php">Ingresar</a></li>
+          <li><a href="registrate.php">Registrate</a></li>
+      <?php else: ?>
+        <li><a href="./logout.php">Logout</a></li>
+        <li class="oculto"><a href="login.php">Ingresar</a></li>
+        <li class="oculto"><a href="registrate.php">Registrate</a></li>
+
+      <?php endif; ?>
+
     </ul>
   </nav>
 

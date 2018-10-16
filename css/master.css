@@ -59,6 +59,10 @@ header li{
   text-align: center;
 }
 
+.oculto{
+  display: none;
+}
+
 header .ofreceme{
   font-weight: bold;
   font-size: 1.5em;
