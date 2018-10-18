@@ -191,7 +191,8 @@ function traerFoto() {
 }
 
 // PARA QUE EL LISTADO DE USUARIOS EMPIECE CON ID 1 SI ESTA VACIO Y SE INCREMENTE EN 1
-function proximoId(){
+// ya no sirve mas esta funcion con my sql default es autoincremental
+/*function proximoId(){
   if (!file_exists ( "usuarios.json" )){
       $file = fopen("usuarios.json","w");
   }
@@ -207,10 +208,12 @@ function proximoId(){
 
   return $ultimo["id"]+1;
 }
+*/
+
 //ARMA EL USUARIO PARA GUARDARLO EN LISTADO DE USUARIOS
 function armarUsuario(){
   return[
-    "id"=> proximoId(),
+    "id"=> "default",
     "nombre"=> trim($_POST["nombre"]),
     "apellido"=> trim($_POST["apellido"]),
     "email"=> trim($_POST["email"]),
@@ -220,12 +223,15 @@ function armarUsuario(){
 //CREA /AGREGA UN USUARIO NUEVO AL LISTADO DE USUARIOS
 function crearUsuario($usuario) {
 global $db;
-$consulta = $db->prepare("INSERT into usuarios values (default, :nombre, :apellido, :password, :email)");
+$consulta = $db->prepare("INSERT into usuarios values (default, :nombre, :apellido, :password, :email, :created, :updated)");
 
+$now = date("Y-m-d h:i:s");
 $consulta->bindValue(":nombre", $usuario["nombre"]);
 $consulta->bindValue(":apellido", $usuario["apellido"]);
 $consulta->bindValue(":password", $usuario["password"]);
 $consulta->bindValue(":email", $usuario["email"]);
+$consulta->bindValue(":created", $now);
+$consulta->bindValue(":updated", $now);
 
 $consulta->execute();
 }
