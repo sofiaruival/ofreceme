@@ -6,8 +6,9 @@
   if(isset($_COOKIE["usuarioLogueado"])&& !ISSET($_SESSION["usuarioLogueado"])){
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
+
   $credenciales= file_get_contents("credenciales.json");
-  $credenciales=json_decoe($credenciales,true);
+  $credenciales=json_decode($credenciales,true);
 
   $dsn = "mysql:host=localhost;dbname=Ofreceme;port=3306;";
   $usuario = $credenciales["usuario"];
@@ -226,17 +227,23 @@ function armarUsuario(){
 //CREA /AGREGA UN USUARIO NUEVO AL LISTADO DE USUARIOS
 function crearUsuario($usuario) {
 global $db;
-$consulta = $db->prepare("INSERT into usuarios values (default, :nombre, :apellido, :password, :email, :created, :updated)");
+$consulta = $db->prepare("INSERT into usuarios values
+  (default, :nombre, :apellido, :email, null, :email, :password, null, null, null)");
 
-$now = date("Y-m-d h:i:s");
+
 $consulta->bindValue(":nombre", $usuario["nombre"]);
 $consulta->bindValue(":apellido", $usuario["apellido"]);
 $consulta->bindValue(":password", $usuario["password"]);
 $consulta->bindValue(":email", $usuario["email"]);
-$consulta->bindValue(":created", $now);
-$consulta->bindValue(":updated", $now);
+
+
 
 $consulta->execute();
+
+$usuario["id"] = $db->lastInsertId();
+
+return $usuario;
+
 }
 
 

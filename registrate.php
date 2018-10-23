@@ -20,10 +20,10 @@ if($_POST){
 
 
   if(empty($errores)){
-		// REGISTRAR
+		loguear($_POST["email"]);
 
     $usuario= armarUsuario();
-    crearUsuario($usuario);
+    $usuario = crearUsuario($usuario);
 
     //GUARDAR LA FOTO
     $ext=pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
