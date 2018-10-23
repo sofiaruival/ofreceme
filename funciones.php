@@ -6,10 +6,12 @@
   if(isset($_COOKIE["usuarioLogueado"])&& !ISSET($_SESSION["usuarioLogueado"])){
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
+  $credenciales= file_get_contents("credenciales.json");
+  $credenciales=json_decoe($credenciales,true);
 
   $dsn = "mysql:host=localhost;dbname=Ofreceme;port=3306;";
-  $usuario = "root";
-  $pass = "root";
+  $usuario = $credenciales["usuario"];
+  $pass = $credenciales["password"];
 
   try {
     $db = new PDO($dsn, $usuario, $pass);
