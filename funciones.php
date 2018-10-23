@@ -7,7 +7,7 @@
     $_SESSION["usuarioLogueado"] = $_COOKIE["usuarioLogueado"];
   }
 
-  $dsn = "mysql:host=localhost;dbname=usuarios;port=3306;";
+  $dsn = "mysql:host=localhost;dbname=Ofreceme;port=3306;";
   $usuario = "root";
   $pass = "root";
 
@@ -15,6 +15,7 @@
     $db = new PDO($dsn, $usuario, $pass);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch (\Exception $e) {
+    echo $e->getMessage();
     echo "Hubo un error";exit;
   }
 
