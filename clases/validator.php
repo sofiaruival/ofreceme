@@ -34,6 +34,8 @@ class Validator {
    */
 
   public function validarDatosRegistrate($datos){
+    global $db;
+
     $datosFinales =[];
     $errores=[];
 
@@ -81,8 +83,8 @@ class Validator {
       $errores["email"] = "El email no es un email";
     }
 
-    elseif ( buscarPorEmail($datosFinales["email"] ) != NULL) {
-      $errores["email"]= "El Mail ya esta en uso.";
+    else if ($db->buscarPorEmail($datosFinales["email"]) != NULL ) {
+      $errores["email"] = "El email ya esta en uso";
     }
 
     if($_FILES["avatar"]["error"] != 0){
@@ -124,6 +126,8 @@ class Validator {
    */
 
   public function validarDatosLogin($datos){
+    global $db;
+
     $usuarioActual;
     $datosFinales =[];
     $errores=[];
@@ -143,7 +147,7 @@ class Validator {
       }
 
       if(!isset($errores["email"])){
-        $usuarioActual = buscarPorEmail($datosFinales["email"]);
+        $usuarioActual = $db->buscarPorEmail($datosFinales["email"]);
         if($usuarioActual == NULL) {
             $errores["email"] = "El email no existe";
         }

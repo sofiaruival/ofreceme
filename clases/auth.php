@@ -27,6 +27,11 @@ class Auth{
     return isset($_SESSION["usuarioLogueado"]);
   }
 
+  public function usuarioLogueado() {
+    global $db;
+    return $db->buscarPorEmail($_SESSION["usuarioLogueado"]);
+  }
+
 
 }
 

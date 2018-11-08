@@ -2,14 +2,12 @@
 
 include_once('clases/db.php');
 include_once('clases/usuario.php');
-/**
- *
- */
+
 class DbMySql extends DB{
 
   protected $dbUsuarios;
 
-  public funcion __construct(){
+  public function __construct(){
     $credenciales= file_get_contents("credenciales.json");
     $credenciales=json_decode($credenciales,true);
 
@@ -27,58 +25,69 @@ class DbMySql extends DB{
   }
 
   function crearUsuario($usuario) {
-    global $db;
-    $consulta = $db->prepare("INSERT into usuarios values
+
+    $consulta = $this->dbUsuarios->prepare("INSERT into usuarios values
       (default, :nombre, :apellido, :email, null, :email, :password, null, null, null)");
 
 
-    $consulta->bindValue(":nombre", $usuario["nombre"]);
-    $consulta->bindValue(":apellido", $usuario["apellido"]);
-    $consulta->bindValue(":password", $usuario["password"]);
-    $consulta->bindValue(":email", $usuario["email"]);
-
-
-
+    $consulta->bindValue(":nombre", $usuario->getnombre());
+    $consulta->bindValue(":apellido", $usuario->getApellido());
+    $consulta->bindValue(":email", $usuario->getEmail());
+    $consulta->bindValue(":email", $usuario->getEmail());
+    $consulta->bindValue(":password", $usuario->getPassword());
     $consulta->execute();
+// crea el usuario mete un usuario en la DB??? por eso no hashea la password??
+  //  $usuario["id"] = $db->lastInsertId();
+//    return $usuario;
+}
 
-    $usuario["id"] = $db->lastInsertId();
 
-    return $usuario;
+function traerUsuarios() {
+  $consulta = $this->dbUsuarios->prepare("SELECT * FROM usuarios");
 
+  $consulta->execute();
+
+  $usuariosArray = $consulta->fetchAll(PDO::FETCH_ASSOC);
+  $usuarios = [];
+
+  foreach ($usuariosArray as $usuarioArray) {
+    $usuarios[] = new Usuario($usuarioArray);
   }
-
-
-  function traerUsuarios() {
-    global $db;
-    $consulta = $db->prepare("SELECT * FROM usuarios");
-
-    $consulta->execute();
-
-    return $consulta->fetchAll(PDO::FETCH_ASSOC);
-  }
+  return $usuarios;
+}
 
   //BUSCA X EMAIL
   function buscarPorEmail($email) {
-    global $db;
-    $consulta = $db->prepare("SELECT * FROM usuarios WHERE email = :email");
+    $consulta = $this->dbUsuarios->prepare("SELECT * FROM usuarios where email = :email");
 
     $consulta->bindValue(":email", $email);
 
     $consulta->execute();
 
-    return $consulta->fetch(PDO::FETCH_ASSOC);
+    $usuarioArray = $consulta->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuarioArray == null) {
+      return null;
+    }
+
+    return new Usuario($usuarioArray);
   }
 
   //BUSCA POR ID
   function buscarPorID($id) {
-    global $db;
-    $consulta = $db->prepare("SELECT * FROM usuarios WHERE id = :id");
+    $consulta = $this->dbUsuarios->prepare("SELECT * FROM usuarios where id = :id");
 
     $consulta->bindValue(":id", $id);
 
     $consulta->execute();
 
-    return $consulta->fetch(PDO::FETCH_ASSOC);
+    $usuarioArray = $consulta->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuarioArray == NULL) {
+      return NULL;
+    }
+
+    return new Usuario($usuarioArray);
   }
 
 }
