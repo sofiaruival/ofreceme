@@ -1,7 +1,10 @@
 <?php
-  include_once("funciones.php");
+  include_once("init.php");
+
   $id = $_GET["id"];
+
   $usuario = buscarPorID($id);
+
   $foto = glob("img/" . $usuario["email"] . "*")[0];
 ?>
 
@@ -18,10 +21,10 @@
   <div class="contenedor">
     <?php include("header.php") ?>
     <div class="principal">
-      <h1>Bienvenido al perfil de <?=$usuario["nombre"]?></h1>
+      <h1>Bienvenido al perfil de <?=$usuario->getNombre()?></h1>
       <ul>
-        <li>Apellido: <?=$usuario["apellido"]?></li>
-        <li>Email: <?=$usuario["email"]?></li>
+        <li>Apellido: <?=$usuario->getApellido()?></li>
+        <li>Email: <?=$usuario->getEmail()?></li>
       </ul>
       <img width="200" src="<?=$foto?>" alt="">
     </div>

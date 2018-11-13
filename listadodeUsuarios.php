@@ -1,7 +1,7 @@
 <?php
 
-  include_once("funciones.php");
-  $usuarios = traerUsuarios();
+  include_once("init.php");
+  $usuarios = $db->traerUsuarios();
 
  ?>
 
@@ -23,8 +23,8 @@
     <ul>
       <?php foreach ($usuarios as $usuario) : ?>
         <li>
-          <a href="detalleUsuario.php?id=<?=$usuario["id"]  ?>">
-          <?php echo $usuario["nombre"] . " " . $usuario["apellido"]; ?>
+          <a href="detalleUsuario.php?id=<?=$usuario->getId()?>">
+          <?php echo $usuario->getNombre() . " " . $usuario->getApellido(); ?>
         </li>
       <?php endforeach; ?>
     </ul>

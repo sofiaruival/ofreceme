@@ -125,34 +125,34 @@ class Validator {
    *                vacío significa que no hubo errores.
    */
 
-  public function validarDatosLogin($datos){
+  public function validarDatosLogin(){
     global $db;
 
     $usuarioActual;
-    $datosFinales =[];
+    //$datosFinales =[];
     $errores=[];
 
-    foreach ($datos as $posicion => $dato) {
-      $datosFinales[$posicion] = trim($dato);
-    }
+    //foreach ($datos as $posicion => $dato) {
+    //  $datosFinales[$posicion] = trim($dato);
+    //}
 
-      if ($datosFinales["email"] == "") {
+      if ($_POST["email"] == "") {
         $errores["email"] = "Hubo error en el email porque esta vacio";
       }
-      else if ( filter_var($datosFinales["email"], FILTER_VALIDATE_EMAIL) == false) {
+      else if ( filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false) {
         $errores["email"] = "El email no es un email";
       }
-      if ($datosFinales["password"] == "") {
+      if ($_POST["password"] == "") {
         $errores["password"] = "Hubo error en la contrasenia porque esta vacia";
       }
 
       if(!isset($errores["email"])){
-        $usuarioActual = $db->buscarPorEmail($datosFinales["email"]);
+        $usuarioActual = $db->buscarPorEmail($_POST["email"]);
         if($usuarioActual == NULL) {
             $errores["email"] = "El email no existe";
         }
-        else if(!password_verify($datosFinales["password"],
-        $usuarioActual["password"])) {
+        else if(!password_verify($_POST["password"],
+        $usuarioActual->getPassword() )) {
             $errores["password"] = "Password incorrecto";
         }
       }

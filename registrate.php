@@ -1,8 +1,8 @@
 <?php
 
-require_once("funciones.php");
+require_once("init.php");
 
-//$errores=[];
+$errores=[];
 
 $nombreDefault="";
 $apellidoDefault="";
@@ -11,7 +11,7 @@ $emailDefault="";
 // Vine por POST?
 if($_POST){
 // VALIDAR
-  $errores=validarDatosRegistrate($_POST);
+  $errores = $validator->validarDatosRegistrate($_POST);
 
   $nombreDefault = $_POST["nombre"];
   $apellidoDefault = $_POST["apellido"];
@@ -20,10 +20,10 @@ if($_POST){
 
 
   if(empty($errores)){
-		loguear($_POST["email"]);
+    $auth->loguear($_POST["email"]);
 
-    $usuario= armarUsuario();
-    $usuario = crearUsuario($usuario);
+    $usuario = new Usuario($_POST);
+		$db->crearUsuario($usuario);
 
     //GUARDAR LA FOTO
     $ext=pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
@@ -65,7 +65,7 @@ if($_POST){
 
         <form id="formulario" class="IngresarDatos" action="registrate.php" method="post" enctype="multipart/form-data">
 
-          <?php if ( isset($errores["nombre"]) ) : ?>
+          <?php if (isset($errores["nombre"]) ) : ?>
           <p class="nombre">
 
             <input class="error" type="text" name="nombre" placeholder="Nombre" value="">

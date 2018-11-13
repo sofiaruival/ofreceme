@@ -1,6 +1,6 @@
 <?php
 
-require_once("funciones.php");
+require_once("init.php");
 //    var_dump($_POST);exit;
 $errores=[];
 $emailDefault="";
@@ -8,14 +8,15 @@ $emailDefault="";
 //si vino x POST
 if($_POST){
 //VALIDACION LOGIN
-  $errores=validarDatosLogin($_POST);
+ $errores = $validator->validarDatosLogin();
 
-  $emailDefault = $_POST["email"];
+ $emailDefault = $_POST["email"];
+ //como hacer para que aparezac el email al ingresar
 
 //si no hay errores entonces LOGUEAR
   //var_dump(empty($errores));
   if(empty($errores)){
-    loguear($_POST["email"]);
+    $auth->loguear($_POST["email"]);
 //si esta clickeado RECORDAME
   if (isset($_POST["recordame"])){
       setcookie("usuarioLogueado", $_POST["email"], time() + 60 * 60 * 24 * 7);

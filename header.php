@@ -1,6 +1,3 @@
-<?php
-  include_once("funciones.php");
- ?>
 
 <header>
   <div class="top-container">
@@ -19,9 +16,9 @@
     </ul>
     <!-- traer la foto si esta logueado pero me salta fatal error!-->
     <div class="bienvenida">
-    <?php if (estaLogueado()) : ?>
-      <p  ><?= $_SESSION["usuarioLogueado"]; ?> </p>
-      <img src="<?= traerFoto() ?>" alt="">
+    <?php if ($auth->estaLogueado()) : ?>
+    <!-- <p  > abrir php // $_SESSION["usuarioLogueado"]; cerrar php <p> -->
+      <img src="<?=$auth->usuarioLogueado()->traerFoto()?>" alt="">
     <?php endif;?>
     </div>
   </div>
@@ -31,7 +28,7 @@
       <li><a href="#">Ofertar</a></li>
       <li><a href="#">Ofertas</a></li>
 
-      <?php if(estaLogueado() === FALSE): ?>
+      <?php if($auth->estaLogueado() === FALSE): ?>
           <li class="oculto"><a href="#">Logout</a></li>
           <li><a href="login.php">Ingresar</a></li>
           <li><a href="registrate.php">Registrate</a></li>

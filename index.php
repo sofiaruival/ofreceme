@@ -1,3 +1,7 @@
+<?php
+  include_once("init.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
