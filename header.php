@@ -17,7 +17,7 @@
     <!-- traer la foto si esta logueado pero me salta fatal error!-->
     <div class="bienvenida">
     <?php if ($auth->estaLogueado()) : ?>
-    <!-- <p  > abrir php // $_SESSION["usuarioLogueado"]; cerrar php <p> -->
+     <p> <?= $auth->getAuthEmail()?> <p>
       <img src="<?=$auth->usuarioLogueado()->traerFoto()?>" alt="">
     <?php endif;?>
     </div>

@@ -19,7 +19,9 @@ class Auth{
   //YA VALIDADO LOGUEAR
   public function loguear($email){
     $_SESSION["usuarioLogueado"]=$email;
-
+  }
+  public function getAuthEmail(){
+    return $_SESSION["usuarioLogueado"];
   }
 
   //SI USURIO ESTA LOGUEADO LO USO PARA??
