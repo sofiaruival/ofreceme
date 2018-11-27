@@ -30,7 +30,7 @@ li {
 }
 
 body{
-  background: url(../images/bg1.jpg);
+  background: url(/images/bg1.jpg);
   font-family:sans-serif;
 }
 

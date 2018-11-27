@@ -1,98 +1,59 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Ofreceme</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <meta charset="utf-8">
+    <meta name="" content="">
+    <title>ofreceme</title>
+  </head>
+  <body>
+<!--INCLUI EL HEADER QUE ESTA EN PAG SEPARADA!-->
+    <?php //include("header.php") ?>
 
-            .full-height {
-                height: 100vh;
-            }
+<div class="container">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <section class="buscar-demanda">
+      <div class="articleHeader">
+      <h3>¿Quieres ofertar?</h3>
 
-            .position-ref {
-                position: relative;
-            }
+      <form class="home-buscar" action="index.php" method="get">
+        <label for="buscar">Haz ofertas a quienes buscan tus productos.</label>
+        <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
+      </form>
+    </div>
+    </section>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <section class="publicar-demanda">
+      <div class="articleHeader">
+      <h3>¿Quieres recibir ofertas?</h3>
+      <p>Contanos qué necesitas para recibir ofertas.</p>
+    </div>
+      <div class="articulos">
+        <article class="categorias-home">
+          <img src="images/Virtue-One-bike-.png-Virtue+One+bike+.png"
+          alt="Articulos nuevos">
+          <a href="#">Productos nuevos</a>
+        </article>
+        <article class="categorias-home">
+          <img src="images/tv-vintage2.jpg"
+          alt="Articulos usados">
+          <a href="#">Productos usados</a>
+        </article>
+        <article class="categorias-home">
+          <img src="images/mano-con-tornillo.jpeg" alt="Img">
+          <a href="#">Servicios</a>
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Ofreceme
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+        </article>
+    </div>
+    </section>
+  </div>
+  </body>
 </html>
+@endsection
