@@ -37,8 +37,7 @@
     </div>
       <div class="articulos">
         <article class="categorias-home">
-          <img src="images/Virtue-One-bike-.png-Virtue+One+bike+.png"
-          alt="Articulos nuevos">
+          <img src="images/Virtue-One-bike-.png" alt="Articulos nuevos">
           <a href="#">Productos nuevos</a>
         </article>
         <article class="categorias-home">
