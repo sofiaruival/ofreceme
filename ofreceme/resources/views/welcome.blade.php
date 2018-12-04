@@ -38,16 +38,16 @@
       <div class="articulos">
         <article class="categorias-home">
           <img src="images/Virtue-One-bike-.png" alt="Articulos nuevos">
-          <a href="#">Productos nuevos</a>
+          <a href="/productos/1">Productos nuevos</a>
         </article>
         <article class="categorias-home">
           <img src="images/tv-vintage2.jpg"
           alt="Articulos usados">
-          <a href="#">Productos usados</a>
+          <a href="/productos/2">Productos usados</a>
         </article>
         <article class="categorias-home">
           <img src="images/mano-con-tornillo.jpeg" alt="Img">
-          <a href="#">Servicios</a>
+          <a href="/productos/3">Servicios</a>
 
         </article>
     </div>

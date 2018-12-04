@@ -9,7 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>
+      @yield('title')
+    </title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -78,7 +80,7 @@
             </form>
           </div>
         </li>
-        
+
         <li class="oculto"><a href="/login">Ingresar</a></li>
         <li class="oculto"><a href="/register">Registrate</a></li>
         <div class="principal">
