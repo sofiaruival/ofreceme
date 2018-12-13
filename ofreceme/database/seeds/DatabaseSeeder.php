@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $users = factory(App\User::class)->times(50)->create();
         $marcas = factory(App\Marca::class)->times(50)->create();
         $productos = factory(App\Producto::class)->times(50)->create();
+
     }
 }

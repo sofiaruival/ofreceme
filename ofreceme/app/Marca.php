@@ -8,4 +8,9 @@ class Marca extends Model
 {
     public $table = 'marcas';
     public $guarded = [];
+
+    public function productos(){
+      return $this->hasMany("App\Producto","marca_id");
+    }
+
 }

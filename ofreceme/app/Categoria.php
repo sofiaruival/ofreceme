@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Producto;
 
 class Categoria extends Model
 {
@@ -10,6 +11,6 @@ class Categoria extends Model
     public $guarded = [];
 
     public function bringProducts(){
-      return $this->belongsToMany('Producto::class','producto/categoria','categoria_id','producto_id');
+      return $this-> belongsToMany(Producto::class,'producto_categoria','categoria_id','producto_id');
     }
 }

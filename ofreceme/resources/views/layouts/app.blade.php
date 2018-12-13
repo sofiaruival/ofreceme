@@ -25,6 +25,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/stylesProducto.css">
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 </head>
 <body>
@@ -37,10 +39,10 @@
   <div class="top-container">
     <ul>
       <li>
-        <a href="index.php"><img class="logo_corto" src="images/logo.png" alt="logo"></a>
+        <a href="/"><img class="logo_corto" src="/images/logo.png" alt="logo"></a>
       </li>
       <li>
-        <a href="index.php"><img class="logo_largo" src="images/logo_largo.png" alt="logo"></a>
+        <a href="/"><img class="logo_largo" src="/images/logo_largo.png" alt="logo"></a>
       </li>
       <li>
         <a href="#" class="toggle-nav">
@@ -59,7 +61,7 @@
   </div>
   <nav class="nav-principal">
     <ul>
-      <li><a href="index.php">Inicio</a></li>
+      <li><a href="/">Inicio</a></li>
       <li><a href="#">Ofertar</a></li>
       <li><a href="#">Ofertas</a></li>
 

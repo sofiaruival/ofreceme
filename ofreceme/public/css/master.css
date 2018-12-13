@@ -175,20 +175,19 @@ form.home-buscar{
 
 article{
   position: relative;
-  background-color: white;
+  background-color: rgba(255,255,255, 0.6);
 }
 
 article a{
   text-decoration: none;
   text-transform: uppercase;
   display: block;
-  width: 100%;
   background-color: rgba(0,0,0,0.5);
   color: lawngreen;
   text-align: center;
   padding: 5px;
-  position: absolute;
-  top: 50%;
+  border-radius: 9px;
+  margin: 0 0 10px 10px;
 }
 
 @media (min-width:768px){
