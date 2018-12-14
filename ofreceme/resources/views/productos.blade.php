@@ -20,6 +20,10 @@
 
 		<!-- productos -->
 		<section class="vip-products">
+				<div class="">
+	<h1>PRODUCTOS BUSCADOS</h1>
+</div>
+
 
       @foreach($productos as $producto)
         <article class="product">

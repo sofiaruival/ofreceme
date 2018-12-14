@@ -19,21 +19,10 @@
 
 <div class="container">
 
-    <section class="buscar-demanda">
-      <div class="articleHeader">
-      <h3>¿Quieres ofertar?</h3>
-
-      <form class="home-buscar" action="index.php" method="get">
-        <label for="buscar">Haz ofertas a quienes buscan tus productos.</label>
-        <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
-      </form>
-    </div>
-    </section>
-
     <section class="publicar-demanda">
       <div class="articleHeader">
-      <h3>¿Quieres recibir ofertas?</h3>
-      <p>Contanos qué necesitas para recibir ofertas.</p>
+      <h3>PRODUCTOS BUSCADOS</h3>
+      <p>Mira los productos y servicios que se estan solicitando y hace tu oferta</p>
     </div>
       <div class="articulos">
         <article class="categorias-home">
@@ -48,11 +37,22 @@
         <article class="categorias-home">
           <img src="images/mano-con-tornillo.jpeg" alt="Img">
           <a href="/productos/3">Servicios</a>
-
         </article>
     </div>
     </section>
+
+    <section class="buscar-demanda">
+      <div class="articleHeader">
+
+      <form class="home-buscar" action="index.php" method="get">
+        <label for="buscar">Buscador</label>
+        <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
+      </form>
+    </div>
+    </section>
+
   </div>
+
   </body>
 </html>
 @endsection
