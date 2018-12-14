@@ -18,18 +18,15 @@
     <?php //include("header.php") ?>
 
 <div class="container">
+    <section class="boton-publicar">
+    <a class="more" href="/newproduct">Estoy buscando Ofertas de un/una ...</a>
+    </section>
 
-    <div class="quiero">
-      <h1><a class="more" href="/newproduct">QUIERO UN/UNA ...</a></h1>
-
-    </div>
-
-    <div class="productos-buscados">
-
-      <h1>PRODUCTOS BUSCADOS</h1>
-
+    <section class="publicar-demanda">
+      <div class="articleHeader">
+      <h3>PRODUCTOS BUSCADOS</h3>
       <p>Mira los productos y servicios que se estan solicitando y hace tu oferta</p>
-
+    </div>
       <div class="articulos">
         <article class="categorias-home">
           <img src="images/Virtue-One-bike-.png" alt="Articulos nuevos">
@@ -44,17 +41,21 @@
           <img src="images/mano-con-tornillo.jpeg" alt="Img">
           <a href="/productos/3">Servicios</a>
         </article>
-      </div>
-        <h1>
-        <form class="home-buscar" action="index.php" method="get">
-          <label for="buscar">BUSCADOR</label>
-          <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
-        </form>
-        </h1>
-
     </div>
+    </section>
+
+    <section class="buscar-demanda">
+      <div class="articleHeader">
+
+      <form class="home-buscar" action="index.php" method="get">
+        <label for="buscar">Buscador</label>
+        <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
+      </form>
+    </div>
+    </section>
 
   </div>
+
   </body>
 </html>
 @endsection
