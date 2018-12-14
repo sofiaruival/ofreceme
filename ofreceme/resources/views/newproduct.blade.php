@@ -19,9 +19,14 @@
     <input type="text" name="nombre" value='@if (isset($producto->nombre)) {{$producto->nombre}} @endif'>
   </div>
   <div class="form-group">
+    <label for="">Marca</label>
+    <input type="text" name="nombre" value='@if (isset($producto->nombre)) {{$producto->nombre}} @endif'>
+  </div>
+  <div class="form-group">
     <label for="">Precio</label>
     <input type="float" name="precio" value="@if (isset($producto->precio)) {{$producto->precio}} @endif">
   </div>
+
   <button type="submit" name="button">guardar</button>
 </form>
 

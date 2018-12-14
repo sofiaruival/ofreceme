@@ -62,8 +62,8 @@
   <nav class="nav-principal">
     <ul>
       <li><a href="/">Inicio</a></li>
-      <li><a href="#">Ofertar</a></li>
-      <li><a href="#">Ofertas</a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
 
       <?php if(!Auth::check()): ?>
           <li class="oculto"><a href="#">Logout</a></li>

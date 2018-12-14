@@ -1,8 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Producto_categoriaFactory;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Producto_categoriaFactory::class, function (Faker $faker) {
 
     $categorias = App\Categoria::all();
     $productos = App\Producto::all();

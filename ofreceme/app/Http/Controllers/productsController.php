@@ -60,4 +60,7 @@ class productsController extends Controller
 
           return redirect("/");
       }
+
+
+
 }

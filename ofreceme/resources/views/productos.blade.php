@@ -31,7 +31,7 @@
   				</div>
   				<h2>{{$producto->nombre}}</h2>
   				<p>{{$producto->marca->nombre}}</p>
-  				<a class="more" href="#">ver más</a>
+  				<a class="more" href="/newproduct">Ofertar</a>
 			   </article>
       @endforeach
 
