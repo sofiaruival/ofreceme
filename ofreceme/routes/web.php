@@ -23,3 +23,6 @@ Route::get('/newproduct', 'productsController@show');
 Route::post('/newproduct', 'productsController@store');
 Route::get('/editproduct/{id}', 'productsController@edit');
 Route::post('/editproduct/{id}', 'productsController@update');
+
+Route::get('/misdeseos','productsController@misDeseos');
+Route::get('/misofertas','productsController@misOfertas');

@@ -70,6 +70,10 @@
           <li><a href="/login">Ingresar</a></li>
           <li><a href="/register">Registrate</a></li>
       <?php else: ?>
+        <li><a href="/misofertas">Mis ofertas</a></li>
+        <li><a href="/misdeseos">Mis deseos</a></li>
+
+
         <li>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"
