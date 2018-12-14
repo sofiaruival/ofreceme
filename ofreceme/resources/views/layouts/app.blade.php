@@ -62,14 +62,18 @@
   <nav class="nav-principal">
     <ul>
       <li><a href="/">Inicio</a></li>
-      <li><a href="#">Ofertar</a></li>
-      <li><a href="#">Ofertas</a></li>
+      {{-- <li><a href="#">Ofertar</a></li> --}}
+      {{-- <li><a href="#">Ofertas</a></li> --}}
 
       <?php if(!Auth::check()): ?>
           <li class="oculto"><a href="#">Logout</a></li>
           <li><a href="/login">Ingresar</a></li>
           <li><a href="/register">Registrate</a></li>
       <?php else: ?>
+        <li><a href="/misofertas">Mis ofertas</a></li>
+        <li><a href="/misdeseos">Mis deseos</a></li>
+
+
         <li>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"

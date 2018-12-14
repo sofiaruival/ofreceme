@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Categoria;
+use Illuminate\Support\Facades\Auth;
 use App\Producto;
 
 class productsController extends Controller
@@ -59,5 +60,14 @@ class productsController extends Controller
           $producto->save();
 
           return redirect("/");
+      }
+
+      public function misDeseos(){
+
+        $id = Auth::id();
+
+        $productos = Producto::where('usuario_id','=',$id)->get();
+
+        return view('misDeseos',compact('productos'));
       }
 }
