@@ -70,4 +70,10 @@ class productsController extends Controller
 
         return view('misDeseos',compact('productos'));
       }
+
+      public function misOfertas(){
+        $id = Auth::id();
+        $ofertas = Auth::user()->ofertasRealizadas;
+        return view('misOfertas', compact('id','ofertas'));
+      }
 }
