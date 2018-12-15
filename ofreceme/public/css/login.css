@@ -1,5 +1,15 @@
 
 
+div.card-header{
+  font-size: 30px;
+  align-content: center;
+  font-family: sans-serif;
+  color: #00000045;
+}
+
+
+
+/*
 section{
   width: 95%;
   display: flex;
@@ -193,4 +203,4 @@ color: #5d5dd6;
         text-transform: capitalize;
         border-radius: 30px;
     }
-    }
+    } */

@@ -21,10 +21,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/productos/{id}','productsController@Products')->name('Products');
+
 Route::get('/newproduct', 'productsController@show');
 Route::post('/newproduct', 'productsController@store');
 Route::get('/editproduct/{id}', 'productsController@edit');
 Route::post('/editproduct/{id}', 'productsController@update');
+
+Route::get('/newOferta', 'OfertasController@show');
+Route::post('/newOferta', 'OfertasController@store');
+Route::get('/editOferta/{id}', 'OfertasController@edit');
+Route::post('/editOferta/{id}', 'OfertasController@update');
 
 Route::get('/misdeseos','productsController@misDeseos');
 Route::get('/misofertas','productsController@misOfertas');

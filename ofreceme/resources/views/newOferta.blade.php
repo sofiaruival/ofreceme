@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 @if ($errors->any()) {{-- Muestra los errores que vienen de las validaciones en el controlador --}}
     <div class="alert alert-danger">
         <ul>
@@ -11,20 +12,17 @@
         </ul>
     </div>
 @endif
-<h1>NUEVO PRODUCTO BUSCADO</h1>
+<h1>NUEVA OFERTA</h1>
 <form class="" action="" method="post">
   @csrf
   <div class="form-group">
-    <label for="">Nombre del producto</label>
-    <input type="text" name="nombre" value='@if (isset($producto->nombre)) {{$producto->nombre}} @endif'>
+    <label for="">Descripcion del Producto o Servicio que va a Ofertar</label>
+    <input type="text" name="descripcion" value='@if (isset($oferta->descripcion)) {{$oferta->descripcion}} @endif'>
   </div>
-  <div class="form-group">
-    <label for="">Marca</label>
-    <input type="text" name="nombre" value='@if (isset($producto->nombre)) {{$producto->nombre}} @endif'>
-  </div>
+
   <div class="form-group">
     <label for="">Precio</label>
-    <input type="float" name="precio" value="@if (isset($producto->precio)) {{$producto->precio}} @endif">
+    <input type="float" name="precio" value="@if (isset($oferta->precio)) {{$oferta->precio}} @endif">
   </div>
 
   <button type="submit" name="button">guardar</button>

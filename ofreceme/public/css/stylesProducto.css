@@ -14,6 +14,8 @@ li {
 
 a{
   text-decoration: none;
+
+
 }
 
 /* Generales */
@@ -140,7 +142,7 @@ p {
     border-right: none;
   }
   .main-footer li a{
-    text-transform: capitalize;
+
   }
 
 }

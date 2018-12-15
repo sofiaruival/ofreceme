@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Categoria;
+use App\Oferta;
 
 class Producto extends Model
 {
@@ -18,5 +19,11 @@ class Producto extends Model
   public function marca(){
     return $this->belongsTo("App\Marca","marca_id");
   }
+
+  public function bringOfertas(){
+    return $this->hasMany("App\Oferta","producto_id");
+  }
+
+
 
 }
