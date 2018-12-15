@@ -18,12 +18,14 @@ class OfertasController extends Controller
   }
 
 
-    public function show(){
+    public function show($id){
 
       if (!Auth::check()) {
         return redirect("/login");
       }
-      return view('newOferta');
+
+      $producto = Producto::find($id);
+      return view('newOferta',compact('producto'));
     }
 
     public function edit($id){
@@ -39,11 +41,11 @@ class OfertasController extends Controller
       ]);//validar
 
         $oferta = new Oferta;     //Crear el objeto Oferta
-
+        //dd($oferta);
         $oferta->descripcion = $req["descripcion"];         //Guardar propiedars
         $oferta->precio = $req["precio"];
         $oferta->user_id = Auth::id();
-        $oferta->producto_id = $producto->id;
+        $oferta->producto_id = $req["product_id"];
         //dd($oferta);
         $oferta->save();
 

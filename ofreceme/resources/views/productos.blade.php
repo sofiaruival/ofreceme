@@ -34,9 +34,13 @@
   					<!-- <a class="zoom" href="#">Ampliar foto</a> -->
   				</div>
   				<h2>{{$producto->nombre}}</h2>
-  				<p>{{$producto->marca->nombre}}</p>
-  				<a class="more" href="/newOferta">OFERTAR</a>
-					<a class="btn btn-link" href="/ofertasAestaDemanda">Ver las ofertas que se le hicieron</a>
+  				<p>
+						@isset($producto->marca->nombre)
+						{{$producto->marca->nombre}}
+						@endisset	
+					</p>
+  				<a class="more" href="/newOferta/{{$producto->id}}">MAS INFO</a>
+					{{-- <a class="btn btn-link" href="/ofertasAestaDemanda">Ver las ofertas que se le hicieron</a> --}}
 			   </article>
       @endforeach
 

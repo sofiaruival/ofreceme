@@ -35,12 +35,20 @@ class productsController extends Controller
 
         ]);//validar
 
+          $ruta = $req["picture"]->store("public/pictures");
+          $nombreArchivo = basename($ruta);
+
           $producto = new Producto;     //Crear el objeto productos
 
           $producto->nombre = $req["nombre"];         //Guardar propiedars
           $producto->precio = $req["precio"];
-          //dd($producto);
+          $producto->usuario_id = Auth::id();
+          $producto->cantidad = $req["cantidad"];
+          $producto->picture = $req["picture"];
           $producto->save();
+
+          //Guardo también en la tabla intermedia. producto-categoria
+          $producto->bringCategories()->attach($req["categoria"]);
 
           return redirect("/");
       }

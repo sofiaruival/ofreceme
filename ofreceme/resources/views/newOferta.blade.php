@@ -12,8 +12,23 @@
         </ul>
     </div>
 @endif
+
+<section>
+  <article class="product">
+    <div class="photo-container">
+
+      <img class="photo" src="/images/img-pdto-2.jpg" alt="pdto 01">
+      <img class="special" src="/images/img-nuevo.png" alt="plato nuevo">
+      <!-- <a class="zoom" href="#">Ampliar foto</a> -->
+    </div>
+    <h2>{{$producto->nombre}}</h2>
+    <p>{{$producto->marca->nombre}}</p>
+
+   </article>
+</section>
 <h1>NUEVA OFERTA</h1>
-<form class="" action="" method="post">
+
+<form class="" action="/newOferta" method="post">
   @csrf
   <div class="form-group">
     <label for="">Descripcion del Producto o Servicio que va a Ofertar</label>
@@ -24,8 +39,17 @@
     <label for="">Precio</label>
     <input type="float" name="precio" value="@if (isset($oferta->precio)) {{$oferta->precio}} @endif">
   </div>
-
-  <button type="submit" name="button">guardar</button>
+    <input type="text" name="product_id" value="{{$producto->id}}" style="display:none">
+  <button type="submit" name="button">Ofertar</button>
 </form>
+<br>
+<hr>
+{{-- Seccion de ofertas --}}
+<h2>OFERTAS REALIZADAS</h2>
+@foreach ($producto->bringOfertas as $oferta)
+    <strong>{{$oferta->descripcion}}</strong>
+    <span>$ {{$oferta->precio}}</span>
+    <br>
+@endforeach
 
 @endsection

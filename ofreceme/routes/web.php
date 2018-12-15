@@ -27,7 +27,7 @@ Route::post('/newproduct', 'productsController@store');
 Route::get('/editproduct/{id}', 'productsController@edit');
 Route::post('/editproduct/{id}', 'productsController@update');
 
-Route::get('/newOferta', 'OfertasController@show');
+Route::get('/newOferta/{id}', 'OfertasController@show');
 Route::post('/newOferta', 'OfertasController@store');
 Route::get('/editOferta/{id}', 'OfertasController@edit');
 Route::post('/editOferta/{id}', 'OfertasController@update');

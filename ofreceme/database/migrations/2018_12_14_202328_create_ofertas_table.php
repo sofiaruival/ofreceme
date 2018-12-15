@@ -13,22 +13,22 @@ class CreateOfertasTable extends Migration
      */
     public function up()
     {
-      Schema::create('ofertas', function (Blueprint $table) {
-          $table->increments('id');
-          //USUARIO QUE REALIZA LA OFERTA
-          $table->unsignedInteger('user_id');
-          $table->foreign('user_id')->references('id')->on('usuarios');
-
-          //PRODUCTO PEDIDO AL QUE LE REALIZA LA OFERTA
-          $table->unsignedInteger('producto_id');
-          $table->foreign('producto_id')->references('id')->on('productos');
-
-          //DATOS DE LA OFERTA
-          $table->float('precio');
-          $table->text('descripcion');
-
-          $table->timestamps();
-      });
+      // Schema::create('ofertas', function (Blueprint $table) {
+          // $table->increments('id');
+          // //USUARIO QUE REALIZA LA OFERTA
+          // $table->unsignedInteger('user_id');
+          // $table->foreign('user_id')->references('id')->on('usuarios');
+          //
+          // //PRODUCTO PEDIDO AL QUE LE REALIZA LA OFERTA
+          // $table->unsignedInteger('producto_id');
+          // $table->foreign('producto_id')->references('id')->on('productos');
+          //
+          // //DATOS DE LA OFERTA
+          // $table->float('precio');
+          // $table->text('descripcion');
+          //
+          // $table->timestamps();
+      // });
     }
 
     /**
