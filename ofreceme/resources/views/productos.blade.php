@@ -35,7 +35,8 @@
   				</div>
   				<h2>{{$producto->nombre}}</h2>
   				<p>{{$producto->marca->nombre}}</p>
-  				<a class="more" href="/newproduct">Ofertar</a>
+  				<a class="more" href="/newOferta">OFERTAR</a>
+					<a class="btn btn-link" href="/ofertasAestaDemanda">Ver las ofertas que se le hicieron</a>
 			   </article>
       @endforeach
 
