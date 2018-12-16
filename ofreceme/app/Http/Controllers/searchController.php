@@ -75,6 +75,7 @@ class searchController extends Controller
       {
         $query = $request->input('query');
         $productos = Producto::where('nombre', 'like', "%$query%")->get();
+
         return view('/searchResults')->with('productos', $productos);
       }
 
