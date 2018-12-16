@@ -34,3 +34,5 @@ Route::post('/editOferta/{id}', 'OfertasController@update');
 
 Route::get('/misdeseos','productsController@misDeseos');
 Route::get('/misofertas','productsController@misOfertas');
+
+Route::get('/search','searchController@search');
