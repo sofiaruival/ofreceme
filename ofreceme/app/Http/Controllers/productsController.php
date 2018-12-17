@@ -9,6 +9,18 @@ use App\Producto;
 
 class productsController extends Controller
 {
+      public function misOfertas() {
+        if (!Auth::check()) {
+          return redirect("/login");
+        }
+
+        $productos = Auth::user()->productos;
+
+        $tituloPrincipal = "Mis Productos";
+
+        return view('/productos',compact('productos','categoria', 'tituloPrincipal'));
+      }
+
       public function Products($id){
 
         //$productos = Producto::limit(10)->get();

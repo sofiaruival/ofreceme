@@ -21,7 +21,12 @@
 		<!-- productos -->
 		<section class="vip-products">
 				<div class="">
-	<h1>PRODUCTOS BUSCADOS</h1>
+					@if ($tituloPrincipal)
+								<h1>{{$tituloPrincipal}}</h1>
+					@else
+							<h1>PRODUCTOS BUSCADOS</h1>
+					@endif
+
 </div>
 
 

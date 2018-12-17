@@ -33,4 +33,8 @@ class User extends Authenticatable
     public function ofertasRealizadas(){
       return $this->hasMany('App\Oferta');
     }
+
+    public function productos() {
+      return $this->hasMany('App\Producto', "usuario_id");
+    }
 }
