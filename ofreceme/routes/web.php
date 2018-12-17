@@ -36,3 +36,11 @@ Route::get('/misdeseos','productsController@misDeseos');
 Route::get('/misofertas','productsController@misOfertas');
 
 Route::get('/search','searchController@search');
+
+
+Route::post('/addToCart', 'ProductsController@addToCart');
+Route::post('/removeFromCart', 'ProductsController@removeFromCart');
+
+Route::get("/checkout", 'ProductsController@checkout');
+
+Route::post("/checkout", 'ProductsController@finish');

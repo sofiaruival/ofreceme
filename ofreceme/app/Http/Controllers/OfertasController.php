@@ -25,6 +25,7 @@ class OfertasController extends Controller
       }
 
       $producto = Producto::find($id);
+
       return view('newOferta',compact('producto'));
     }
 
@@ -70,6 +71,7 @@ class OfertasController extends Controller
 
         return redirect("/");
     }
+
 
 
 }

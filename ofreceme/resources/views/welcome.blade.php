@@ -46,10 +46,12 @@
         </article>
       </div>
         <h1>
-        <form class="home-buscar" action="index.php" method="get">
-          <label for="buscar">BUSCADOR</label>
-          <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
-        </form>
+          <form class="home-buscar" action="/search" method="get">
+             {{csrf_field()}}
+             <label for="buscar">BUSCADOR</label>
+             <input id="buscar" type="text" name="busqueda" value="" required placeholder="Buscar demanda para ...">
+             <input type="submit" name="" value="Buscar">
+           </form>
         </h1>
 
     </div>
