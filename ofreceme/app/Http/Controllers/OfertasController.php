@@ -7,8 +7,18 @@ use Auth;
 use App\Oferta;
 use App\Producto;
 
+
 class OfertasController extends Controller
 {
+
+  public function misOfertas() {
+    if (!Auth::check()) {
+      return redirect("/login");
+    }
+
+    $ofertas = Auth::user()->ofertas;
+    return view('/ofertas',compact('ofertas','producto'));
+  }
 
   public function Ofertas($id){
     $producto = Producto::find($id);
@@ -43,6 +53,7 @@ class OfertasController extends Controller
 
         $oferta = new Oferta;     //Crear el objeto Oferta
         //dd($oferta);
+
         $oferta->descripcion = $req["descripcion"];         //Guardar propiedars
         $oferta->precio = $req["precio"];
         $oferta->user_id = Auth::id();

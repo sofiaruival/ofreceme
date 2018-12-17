@@ -21,11 +21,11 @@
 		<!-- productos -->
 		<section class="vip-products">
 				<div class="">
-					@if ($tituloPrincipal)
+					@isset ($tituloPrincipal)
 								<h1>{{$tituloPrincipal}}</h1>
 					@else
 							<h1>PRODUCTOS BUSCADOS</h1>
-					@endif
+					@endisset
 
 </div>
 

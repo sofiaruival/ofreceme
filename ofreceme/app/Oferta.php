@@ -13,4 +13,6 @@ class Oferta extends Model
   public function bringProducto(){
     return $this->belongsTo("App\Producto","producto_id");
   }
+
+  
 }

@@ -9,7 +9,7 @@ use App\Producto;
 
 class productsController extends Controller
 {
-      public function misOfertas() {
+      public function misDeseos() {
         if (!Auth::check()) {
           return redirect("/login");
         }
@@ -20,6 +20,8 @@ class productsController extends Controller
 
         return view('/productos',compact('productos','categoria', 'tituloPrincipal'));
       }
+
+
 
       public function Products($id){
 
@@ -47,8 +49,10 @@ class productsController extends Controller
 
         ]);//validar
 
-          $ruta = $req["picture"]->store("public/pictures");
-          $nombreArchivo = basename($ruta);
+         $ruta = $req["picture"]->store("/storage/pictures");
+         $nombreArchivo = basename($ruta);
+
+
 
           $producto = new Producto;     //Crear el objeto productos
 

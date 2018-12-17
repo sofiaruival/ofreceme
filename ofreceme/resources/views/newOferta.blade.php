@@ -22,7 +22,7 @@
       <!-- <a class="zoom" href="#">Ampliar foto</a> -->
     </div>
     <h2>{{$producto->nombre}}</h2>
-    <p>{{$producto->marca->nombre}}</p>
+    {{-- <p>{{$producto->marca->nombre}}</p> --}}
 
    </article>
 </section>
