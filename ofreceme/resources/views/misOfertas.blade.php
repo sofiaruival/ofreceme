@@ -22,6 +22,14 @@
 		<!-- Lista de ofertas -->
 
 
+		{{-- @php
+			dd(Auth::user()->ofertasRealizadas())
+		@endphp --}}
+		@foreach (Auth::user()->ofertasRealizadas as $oferta)
+			<a href="{{"/producto/".$oferta->producto_id}}">{{$oferta->descripcion}}</a>
+			{{'$ ' . $oferta->precio}}
+			<br>
+		@endforeach
 
 
     </section>

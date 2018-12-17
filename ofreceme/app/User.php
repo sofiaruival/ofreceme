@@ -31,7 +31,7 @@ class User extends Authenticatable
     ];
 
     public function ofertasRealizadas(){
-      return $this->hasMany('App\Oferta');
+      return $this->hasMany('App\Oferta',"user_id");
     }
 
     public function productos() {

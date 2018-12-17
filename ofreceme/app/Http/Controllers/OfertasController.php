@@ -17,7 +17,7 @@ class OfertasController extends Controller
     }
 
     $ofertas = Auth::user()->ofertas;
-    return view('/ofertas',compact('ofertas','producto'));
+    return view('misOfertas',compact('ofertas'));
   }
 
   public function Ofertas($id){
