@@ -44,7 +44,7 @@ class productsController extends Controller
           $producto->precio = $req["precio"];
           $producto->usuario_id = Auth::id();
           $producto->cantidad = $req["cantidad"];
-          $producto->picture = $req["picture"];
+          $producto->picture = $nombreArchivo;
           $producto->save();
 
           //Guardo también en la tabla intermedia. producto-categoria

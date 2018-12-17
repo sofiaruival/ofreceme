@@ -24,6 +24,16 @@ class Producto extends Model
     return $this->hasMany("App\Oferta","producto_id");
   }
 
+  public function getPicture() {
+    $picture = $this->picture;
+
+    if ($picture) {
+      return "/storage/pictures/" . $picture;
+    } else {
+      return "/images/img-pdto-2.jpg";
+    }
+  }
+
 
 
 }

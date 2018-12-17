@@ -40,7 +40,7 @@
 	        <article class="product">
 	  				<div class="photo-container">
 
-	  					<img class="photo" src="/images/img-pdto-2.jpg" alt="pdto 01">
+	  					<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
 	  					<img class="special" src="/images/img-nuevo.png" alt="plato nuevo">
 	  					<!-- <a class="zoom" href="#">Ampliar foto</a> -->
 	  				</div>
