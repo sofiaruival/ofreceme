@@ -51,6 +51,10 @@ class OfertasController extends Controller
 
       ]);//validar
 
+        $ruta = $req["picture"]->store("/public/pictures");
+        $nombreArchivo = basename($ruta);
+
+
         $oferta = new Oferta;     //Crear el objeto Oferta
         //dd($oferta);
 
@@ -58,6 +62,7 @@ class OfertasController extends Controller
         $oferta->precio = $req["precio"];
         $oferta->user_id = Auth::id();
         $oferta->producto_id = $req["product_id"];
+        $oferta->picture = $nombreArchivo;
         //dd($oferta);
         $oferta->save();
 

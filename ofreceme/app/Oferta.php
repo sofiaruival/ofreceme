@@ -14,5 +14,14 @@ class Oferta extends Model
     return $this->belongsTo("App\Producto","producto_id");
   }
 
-  
+  public function getPicture() {
+    $picture = $this->picture;
+
+    if ($picture) {
+      return "/storage/pictures/" . $picture;
+    } else {
+      return "/images/img-pdto-2.jpg";
+    }
+  }
+
 }
