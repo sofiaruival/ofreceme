@@ -88,6 +88,36 @@ class OfertasController extends Controller
         return redirect("/");
     }
 
+    public function showOfertas($id){
+
+
+      $producto = Producto::find($id);
+
+      return view("detallesOfertasDeMiDeseo",compact('producto'));
+
+    }
+
+    public function addToCart(Request $req){
+      $oferta = Oferta::find($req['oferta_id']);
+      $oferta->state = 1;
+      $oferta->save();
+
+      $producto = Producto::find($oferta->producto_id);
+      $producto->state = 1;
+      $producto->save();
+
+      $productos = Producto::where('state','=',1)->get();
+      $ofertas = Oferta::where('state','=',1)->get();
+
+      return view("/miCarrito",compact('productos','ofertas'));
+    }
+
+    public function Checkout(Request $req){
+
+
+      return view('checkout',compact('ofertas'));
+    }
+
 
 
 }

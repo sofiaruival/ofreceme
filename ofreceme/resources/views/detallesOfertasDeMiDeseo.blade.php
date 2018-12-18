@@ -27,41 +27,39 @@
 							<h1>PRODUCTOS BUSCADOS</h1>
 					@endisset
 
-</div>
+				</div>
 
-
-      @foreach($productos as $producto)
         <article class="product">
   				<div class="photo-container">
-
   					<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
-  					<img class="special" src="/images/img-nuevo.png" alt="plato nuevo">
-  					<!-- <a class="zoom" href="#">Ampliar foto</a> -->
   				</div>
+
   				<h2>{{$producto->nombre}}</h2>
   				<p>
 						@isset($producto->marca->nombre)
 						{{$producto->marca->nombre}}
 						@endisset
 					</p>
-					@if ($producto->usuario_id == Auth::id())
-					<a class="more" href="/misOfertasRecibidas/{{$producto->id}}">VER OFERTAS</a>
-				@else
-					<a class="more" href="/newOferta/{{$producto->id}}">MAS INFO</a>
-					{{-- <a class="btn btn-link" href="/ofertasAestaDemanda">Ver las ofertas que se le hicieron</a> --}}
-
-					@endif
-
 				 </article>
-      @endforeach
+
+	    </section>
 
 
+		<div class="ofertas">
+			<h2>OFERTAS RECIBIDAS</h2>
+			@foreach ($producto->bringOfertas as $oferta)
+				<form class="" action="/addToCart" method="post">
+					@csrf
+					<input type="text" name="oferta_id" value="{{$oferta->id}}" style="display:none">
+					<button type="submit" name="button">Agregar al carrito</button>
+					<strong>{{$oferta->descripcion}}</strong>
+					<span>$ {{$oferta->precio}}</span>
+				</form>
 
-    </section>
-
-
+					<br>
+			@endforeach
+		</div>
 	</div>
-
 	</body>
 
 

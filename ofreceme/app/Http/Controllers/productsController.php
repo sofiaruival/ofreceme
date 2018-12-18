@@ -16,7 +16,7 @@ class productsController extends Controller
 
         $productos = Auth::user()->productos;
 
-        $tituloPrincipal = "Mis Productos";
+        $tituloPrincipal = "Mis Deseos:";
 
         return view('/productos',compact('productos','categoria', 'tituloPrincipal'));
       }

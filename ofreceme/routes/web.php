@@ -37,10 +37,11 @@ Route::get('/misofertas','OfertasController@misOfertas');
 
 Route::get('/search','searchController@search');
 
+Route::get('/misOfertasRecibidas/{id}','OfertasController@showOfertas');
 
-Route::post('/addToCart', 'ProductsController@addToCart');
+Route::post('/addToCart/', 'OfertasController@addToCart');
 Route::post('/removeFromCart', 'ProductsController@removeFromCart');
 
-Route::get("/checkout", 'ProductsController@checkout');
+Route::get("/checkout", 'OfertasController@checkout');
 
 Route::post("/checkout", 'ProductsController@finish');
