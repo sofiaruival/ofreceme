@@ -26,7 +26,7 @@
 			dd(Auth::user()->ofertasRealizadas())
 		@endphp --}}
 		@foreach (Auth::user()->ofertasRealizadas as $oferta)
-			<a href="{{"/producto/".$oferta->producto_id}}">{{$oferta->descripcion}}</a>
+			<a href="{{"/newOferta/".$oferta->producto_id}}">{{$oferta->descripcion}}</a>
 			{{'$ ' . $oferta->precio}}
 			<br>
 		@endforeach
