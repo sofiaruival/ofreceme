@@ -49,7 +49,7 @@ class productsController extends Controller
 
         ]);//validar
 
-         $ruta = $req["picture"]->store("/storage/pictures");
+         $ruta = $req["picture"]->store("/public/pictures");
          $nombreArchivo = basename($ruta);
 
 
