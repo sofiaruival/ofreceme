@@ -1,5 +1,30 @@
 
 
+div.containerRegistrate {
+    background-color: rgba(255,255,255, 0.6);
+    padding: 10px;
+    width: 90%;
+    margin-top: 40px;
+    margin-bottom: 18px;
+    text-align: center;
+    border-radius: 33px;
+    font-size: 25px;
+    }
+
+
+input#picture.button {
+  align-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 18px;
+  font-size: 25px;
+}
+
+
+
+
+
+/*
 section{
   width: 95%;
   display: flex;
@@ -11,7 +36,6 @@ section{
   background-color: white;
 
 }
-
 
 
 h1{
@@ -67,12 +91,12 @@ p.nombre input {
   padding: 10px 20px;
   margin: 0px 0;
   font-size: 15px;
-  /*color: #00000045;*/
+
   border-radius: 10px;
   }
 
 p.nombre input value{
-  /* color: #00000045; */
+
 }
 
 
@@ -81,7 +105,7 @@ p.apellido input {
     padding: 10px 20px;
     margin: 0px 0;
     font-size: 15px;
-    /* color: #00000045; */
+
     border-radius: 10px;
     }
 
@@ -90,7 +114,7 @@ p.email input{
   padding: 10px 20px;
   margin: 0px 0;
   font-size: 15px;
-  /* color: #00000045; */
+
   border-radius: 10px;
 }
 
@@ -100,7 +124,7 @@ p.contraseña input {
   margin: 0px 0;
   font-size: 15px;
   /* color: #00000045; */
-  border-radius: 10px;
+  /* border-radius: 10px;
   }
 
 
@@ -224,4 +248,4 @@ section {
         text-transform: capitalize;
         border-radius: 30px;
     }
-    }
+    } */

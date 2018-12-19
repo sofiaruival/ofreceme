@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/stylesProducto.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/registrate.css">
 
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 </head>

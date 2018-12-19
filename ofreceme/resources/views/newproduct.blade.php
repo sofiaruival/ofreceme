@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+  <!DOCTYPE html>
+
+
+  <html>
+  	<head>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  		<link rel="stylesheet" href="/css/font-awesome.min.css">
+  		<link rel="stylesheet" href="/css/stylesProducto.css">
+  		<link rel="stylesheet" href="/css/master.css">
+  		<link rel="stylesheet" href="/css/newProduct.css">
+
+  		<title>Responsive Web Design</title>
+  	</head>
+  	<body>
+  <div class="containerNewProduct">
+
 
 @if ($errors->any()) {{-- Muestra los errores que vienen de las validaciones en el controlador --}}
     <div class="alert alert-danger">
@@ -45,5 +62,8 @@
 
   <button type="submit" name="button">guardar</button>
 </form>
+
+</div>
+</body>
 
 @endsection
