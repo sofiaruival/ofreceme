@@ -19,9 +19,10 @@
 		<p style="color:black">Seleccione las ofertas que desea confirmar su compra.</p>
 
 		<form class="" action="/checkout" method="post">
+			@csrf
 			@foreach ($ofertas as $oferta)
 
-				<input type="checkbox" name="{{$oferta->id}}" value="2">{{$oferta->descripcion . " $ " . $oferta->precio}}<br>
+				<input type="checkbox" name="productos[]" value="{{$oferta->producto_id}}">{{$oferta->descripcion . " $ " . $oferta->precio}}<br>
 
 			@endforeach
 

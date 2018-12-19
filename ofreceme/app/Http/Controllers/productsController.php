@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Categoria;
 use Illuminate\Support\Facades\Auth;
 use App\Producto;
+use App\Oferta;
 
 class productsController extends Controller
 {
@@ -88,6 +89,19 @@ class productsController extends Controller
           return redirect("/");
       }
 
+      public function finish(Request $req){
+
+
+        foreach ($req->productos as $producto_id) {
+
+          $producto = Producto::find($producto_id);
+          $producto->state = 2;
+          $producto->save();
+        }
+
+        return redirect('/misdeseos');
+
+      }
 
 
 }

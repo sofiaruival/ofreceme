@@ -11,7 +11,7 @@ class Oferta extends Model
   public $guarded = [];
 
   public function bringProducto(){
-    return $this->belongsTo("App\Producto","producto_id");
+    return $this->belongsTo(Producto::class,"producto_id");
   }
 
   public function getPicture() {

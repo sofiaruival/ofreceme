@@ -23,6 +23,8 @@
 		<section class="vip-products">
 
       @foreach($productos as $producto)
+				@if ($producto->state != 2)
+
         <article class="product">
   				<div class="photo-container">
 
@@ -35,6 +37,7 @@
   				<a href="/detallesOfertasDeMiDeseo/{{$producto->id}}" class="more">VER OFERTAS</a>
 
 				 </article>
+			 @endif
 
 
 

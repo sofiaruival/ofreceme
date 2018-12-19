@@ -31,7 +31,9 @@
 
 
       @foreach($productos as $producto)
-        <article class="product">
+				@if ($producto->state != 2)
+
+				<article class="product">
   				<div class="photo-container">
 
   					<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
@@ -53,6 +55,7 @@
 					@endif
 
 				 </article>
+			 @endif
       @endforeach
 
 

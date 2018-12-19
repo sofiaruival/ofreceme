@@ -47,4 +47,4 @@ Route::post('/removeFromCart', 'ProductsController@removeFromCart');
 
 Route::get("/checkout", 'OfertasController@checkout');
 
-Route::post("/checkout", 'ProductsController@finish');
+Route::post("/checkout", 'productsController@finish');
