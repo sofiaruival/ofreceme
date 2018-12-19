@@ -14,7 +14,7 @@
 		<title>Responsive Web Design</title>
 	</head>
 	<body>
-		<h2><a href="javascript:history.go(-2)">Seguir agregando al carrito</a></h2>
+		<h2><a href="/misdeseos">Seguir agregando al carrito</a></h2>
 		<h1>Ofertas en el Carrito:</h1>
 		<p style="color:black">Seleccione las ofertas que desea confirmar su compra.</p>
 

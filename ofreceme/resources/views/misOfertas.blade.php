@@ -66,7 +66,6 @@
 
 @endsection
 
---------------------------------------------------------------------------
 
 {{--
       @foreach($productos as $producto)
@@ -83,4 +82,4 @@
 	</body>
 
 
-@endsection --}} --}}
+@endsection --}} 

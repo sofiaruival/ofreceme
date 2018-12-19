@@ -41,6 +41,8 @@ Route::get('/misOfertasRecibidas/{id}','OfertasController@showOfertas');
 Route::get('/detallesOfertasDeMiDeseo/{id}','OfertasController@showOfertas');
 
 Route::post('/miCarrito/{id}', 'OfertasController@addToCart');
+Route::get('/miCarrito','OfertasController@viewCart');
+
 Route::post('/removeFromCart', 'ProductsController@removeFromCart');
 
 Route::get("/checkout", 'OfertasController@checkout');

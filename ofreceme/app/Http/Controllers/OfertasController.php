@@ -110,10 +110,32 @@ class OfertasController extends Controller
         $producto->state = 1;
         $producto->save();
 
+        $user_id = Auth::id();
+
         $productos = Producto::where('state','=',1)->get();
-        $ofertas = Oferta::where('state','=',1)->get();
+        // $ofertas = Oferta::where('state','=',1)->get();
+        $ofertas = \DB::table('ofertas')
+                    ->join('productos','ofertas.producto_id','=','productos.id')
+                    ->where([
+                      ['productos.usuario_id','=',$user_id],
+                      ['ofertas.state','=',1],
+                    ])->get();
 
       return view("/miCarrito",compact('ofertas'));
+      }
+
+      public function viewCart(){
+        $user_id = Auth::id();
+        //$ofertas = Oferta::where('state','=',1)->get();
+        $ofertas = \DB::table('ofertas')
+                    ->join('productos','ofertas.producto_id','=','productos.id')
+                    ->where([
+                      ['productos.usuario_id','=',$user_id],
+                      ['ofertas.state','=',1],
+                    ])->get();
+
+        return view("/miCarrito",compact('ofertas'));
+
       }
 
 
