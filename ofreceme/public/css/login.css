@@ -5,11 +5,12 @@ div.card-header{
   align-content: center;
   font-family: sans-serif;
   color: #00000045;
+  background-color: rgba(255,255,255, 0.6);
 }
 
 
 
-/*
+
 section{
   width: 95%;
   display: flex;
@@ -165,8 +166,8 @@ color: #5d5dd6;
 
 @media (min-width: 1024px){
   div.container{
-    width: 95%;
-    background-color: rgba(0,0,0,0.5);
+    width: 50%;
+    background-color: rgba(255,255,255, 0.6);
   }
 
   section {
@@ -203,4 +204,4 @@ color: #5d5dd6;
         text-transform: capitalize;
         border-radius: 30px;
     }
-    } */
+    }

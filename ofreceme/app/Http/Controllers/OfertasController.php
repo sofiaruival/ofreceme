@@ -90,33 +90,80 @@ class OfertasController extends Controller
 
     public function showOfertas($id){
 
-
       $producto = Producto::find($id);
 
-      return view("detallesOfertasDeMiDeseo",compact('producto'));
+      return view("/detallesOfertasDeMiDeseo",compact('producto'));
+
 
     }
 
-    public function addToCart(Request $req){
-      $oferta = Oferta::find($req['oferta_id']);
-      $oferta->state = 1;
-      $oferta->save();
+// ----- Carrito de Gregorio ----
+//
+    public function addToCart(Request $req, $id)
+    {
 
-      $producto = Producto::find($oferta->producto_id);
-      $producto->state = 1;
-      $producto->save();
+        $oferta = Oferta::find($req['oferta_id']);
+        $oferta->state = 1;
+        $oferta->save();
 
-      $productos = Producto::where('state','=',1)->get();
-      $ofertas = Oferta::where('state','=',1)->get();
+        $producto = Producto::find($oferta->producto_id);
+        $producto->state = 1;
+        $producto->save();
 
-      return view("/miCarrito",compact('productos','ofertas'));
-    }
+        $productos = Producto::where('state','=',1)->get();
+        $ofertas = Oferta::where('state','=',1)->get();
 
-    public function Checkout(Request $req){
+      return view("/miCarrito",compact('ofertas'));
+      }
 
 
-      return view('checkout',compact('ofertas'));
-    }
+
+// _____________Intento de carrito de SOFI con cart en Session, NO funciona_________
+
+    // public function addToCart(Request $req){
+    //   $oferta = Oferta::find($req['oferta_id'])
+      // //
+      // // $cart = session("cart");
+      // //
+      // // if(!$cart){
+      // //   $cart=[];
+      // // }
+      // // $cart[] = [
+      // //   "idOferta"=>$ofertas,
+      // //
+      // // ];
+      // // session(["cart"=>$cart]);
+      //
+      // return view("/miCarrito",compact('ofertas'));
+    // }
+
+    // public function checkout(){
+    //
+    //         if (!Auth::check()) {
+    //       		return redirect("/login");
+    //       	}
+    //
+    //       	$cart = session("cart");
+    //
+    //       	if (!$cart) {
+    //       		return redirect("/detallesOfertasDeMiDeseo");
+    //       	}
+    //
+    //       	$finalOfertas = [];
+    //       	$total = 0;
+    //
+    //       	foreach ($cart as $item) {
+    //           $oferta = Oferta::find($item["idOferta"]);
+    //
+    //       		$total +=  $oferta->precio;
+    //
+    //       		$finalOfertas[] = $oferta;
+    //       	}
+    //
+    //       	// return view("checkout", compact("finalProducts", "total"));
+    //
+    //   return view('checkout',compact("finalOfertas", "total"));
+    // }
 
 
 

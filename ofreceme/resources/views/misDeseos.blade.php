@@ -31,9 +31,13 @@
   					<!-- <a class="zoom" href="#">Ampliar foto</a> -->
   				</div>
   				<h2>{{$producto->nombre}}</h2>
-  				<p>{{$producto->marca->nombre}}</p>
-  				<a class="more" href="#">Detalles y ofertas recibidas</a>
-			   </article>
+  				<p>{{$producto->precio}}</p>
+  				<a href="/detallesOfertasDeMiDeseo/{{$producto->id}}" class="more">VER OFERTAS</a>
+
+				 </article>
+
+
+
       @endforeach
 
 

@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/stylesProducto.css">
+
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 </head>
 <body>
@@ -64,6 +65,14 @@
       <li><a href="/">Inicio</a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
+
+      {{-- @if (Session::get("cart"))
+        <li>
+          <a href="/checkout">
+            <button type="button" class="btn btn-success">Checkout</button>
+          </a>
+        </li>
+      @endif --}}
 
       <?php if(!Auth::check()): ?>
           <li class="oculto"><a href="#">Logout</a></li>

@@ -24,17 +24,16 @@
 					@isset ($tituloPrincipal)
 								<h1>{{$tituloPrincipal}}</h1>
 					@else
-							<h1>PRODUCTOS BUSCADOS</h1>
+							<h1>PARA MI PRODUCTO DESEADO :</h1>
 					@endisset
 
-				</div>
-
+				<h2>{{$producto->nombre}}</h2>
         <article class="product">
   				<div class="photo-container">
   					<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
   				</div>
 
-  				<h2>{{$producto->nombre}}</h2>
+
   				<p>
 						@isset($producto->marca->nombre)
 						{{$producto->marca->nombre}}
@@ -46,17 +45,35 @@
 
 
 		<div class="ofertas">
-			<h2>OFERTAS RECIBIDAS</h2>
-			@foreach ($producto->bringOfertas as $oferta)
-				<form class="" action="/addToCart" method="post">
-					@csrf
-					<input type="text" name="oferta_id" value="{{$oferta->id}}" style="display:none">
-					<button type="submit" name="button">Agregar al carrito</button>
-					<strong>{{$oferta->descripcion}}</strong>
-					<span>$ {{$oferta->precio}}</span>
-				</form>
 
+
+			@foreach ($producto->bringOfertas as $oferta)
+				<h2>OFERTAS RECIBIDAS</h2>
+
+				<article class="product" style="float:left" >
+					<div class="photo-container" >
+						<img class="photo" src="{{$oferta->getPicture()}}" alt="oferta picture">
+					</div>
+
+					<h2>{{$oferta->nombre}}</h2>
+					Nombre: {{$oferta->descripcion}}
 					<br>
+					Al precio: {{$oferta->precio}}
+					<br>
+					Usuario: {{$oferta->user_id}}
+					<br>
+
+					<form class="" action="/miCarrito/{{$oferta->id}}" method="post">
+						@csrf
+						<input type="text" name="oferta_id" value="{{$oferta->id}}" style="display:none">
+						<button type="submit" name="button">Agregar al carrito</button>
+
+
+
+
+					</form>
+				</article>
+
 			@endforeach
 		</div>
 	</div>

@@ -38,8 +38,9 @@ Route::get('/misofertas','OfertasController@misOfertas');
 Route::get('/search','searchController@search');
 
 Route::get('/misOfertasRecibidas/{id}','OfertasController@showOfertas');
+Route::get('/detallesOfertasDeMiDeseo/{id}','OfertasController@showOfertas');
 
-Route::post('/addToCart/', 'OfertasController@addToCart');
+Route::post('/miCarrito/{id}', 'OfertasController@addToCart');
 Route::post('/removeFromCart', 'ProductsController@removeFromCart');
 
 Route::get("/checkout", 'OfertasController@checkout');

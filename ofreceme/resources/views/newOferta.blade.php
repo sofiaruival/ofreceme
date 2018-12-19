@@ -53,6 +53,7 @@
 <hr>
 {{-- Seccion de ofertas --}}
 <h2>OFERTAS REALIZADAS</h2>
+
 @foreach ($producto->bringOfertas as $oferta)
     <strong>{{$oferta->descripcion}}</strong>
     <span>$ {{$oferta->precio}}</span>

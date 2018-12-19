@@ -29,10 +29,12 @@
 <h1>CARRITO</h1>
 
 
+
 <br>
 <hr>
 {{-- Seccion de ofertas --}}
 <h2>OFERTAS RECIBIDAS</h2>
+
 @foreach ($producto->bringOfertas as $oferta)
     <strong>{{$oferta->descripcion}}</strong>
     <span>$ {{$oferta->precio}}</span>
