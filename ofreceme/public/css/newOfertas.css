@@ -15,7 +15,7 @@ a{
 
 }
 
-div.tituloOfertasDe{
+div.tituloNuevaOfertasDe{
   background-color: rgba(255,255,255, 0.6);
   padding: 10px;
   width: 100%;
@@ -24,29 +24,30 @@ div.tituloOfertasDe{
   text-align: center;
 }
 
-div.listadoDeProductos{
 
-}
-
-article.articulosViewOfertas{
-  font-size: 20px;
+div.articulosRelaciones{
+  background-color: rgba(255,255,255, 0.6);
   width: 100%;
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
 }
 
-div.cadaOferta{
-  padding: 4px;
+div.caja{
   background-color: rgba(255,255,255, 0.6);
   display: block;
-  width: 90%;
-  margin: 5%;
+  width: 100%;
+  margin: 1%;
+}
+div.photo-container{
+  width: 100%;
 }
 
-.photo{
-  max-width: 100%;
+img.photo{
+  width: 100%;
+
+
 }
+
 
 
 

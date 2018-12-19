@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/misOfertas.css">
+		<link rel="stylesheet" href="/css/master.css">
+
 		<title>Responsive Web Design</title>
 	</head>
 	<body>
@@ -27,20 +29,22 @@
 			@foreach (Auth::user()->ofertasRealizadas as $oferta)
 
 				<div class="cadaOferta">
-						<div class="photo-container" >
-								<img class="photo" src="{{$oferta->getPicture()}}" alt="oferta picture">
-						</div>
+
 				<h2>Para el deseo:</h2>
 				<h3><a href="/newOferta/{{$oferta->bringProducto->id}}">{{$oferta->bringProducto->nombre}}</a></h3>
 				<h2>{{$oferta->nombre}}</h2>
-				Ofreciste: {{$oferta->descripcion}}
 				<br>
-				Al precio: {{$oferta->precio}}
-				<br>
-				<a class="more" href="/OfertaInfo/{{$oferta->id}}">MAS INFO</a>
+				<h1>Ofreciste: {{$oferta->descripcion}}</h1>
+
+				<h1>Al precio de $ {{$oferta->precio}}</h1>
+				<div class="photo-container" >
+						<img class="photo" src="{{$oferta->getPicture()}}" alt="oferta picture">
+				</div>
+
+
+				{{-- <a class="more" href="/OfertaInfo/{{$oferta->id}}">MAS INFO</a> --}}
 				{{-- <a class="btn btn-link" href="/ofertasAestaDemanda">Ver las ofertas que se le hicieron</a> --}}
 				</div>
-		</article>
 
 
 
@@ -56,6 +60,8 @@
 
 			</div> --}}
 		@endforeach
+	</article>
+
 
 
 

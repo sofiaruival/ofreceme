@@ -11,46 +11,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/misDeseos.css">
+		<link rel="stylesheet" href="/css/master.css">
 		<title>Responsive Web Design</title>
 	</head>
 	<body>
 
 	<div class="containerMisDeseos">
 
-    <!-- Titulo-->
-    <h1>Lista de deseos de {{Auth::user()->nombre}}</h1>
+    <div class="tituloOfertasDe">
+    		<h1>Lista de deseos de {{Auth::user()->nombre}}</h1>
+		</div>
 		<!-- Productos -->
-		<section class="vip-products">
+		<div class="articulosMisDeseos">
 
       @foreach($productos as $producto)
 				@if ($producto->state != 2)
 
-        <article class="product">
-  				<div class="photo-container">
-
-  					<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
-  					<img class="special" src="/images/img-nuevo.png" alt="plato nuevo">
+        <div class="cadaDeseo">
+  					<div class="photo-container">
+  						<img class="photo" src="{{$producto->getPicture()}}" alt="pdto 01">
+  						<img class="special" src="/images/img-nuevo.png" alt="plato nuevo">
   					<!-- <a class="zoom" href="#">Ampliar foto</a> -->
-  				</div>
-  				<h2>{{$producto->nombre}}</h2>
-  				<p>{{$producto->precio}}</p>
-  				<a href="/detallesOfertasDeMiDeseo/{{$producto->id}}" class="more">VER OFERTAS</a>
+  					</div>
 
-				 </article>
+						<h2>{{$producto->nombre}}</h2>
+
+						<p>{{$producto->precio}}</p>
+
+						<a href="/detallesOfertasDeMiDeseo/{{$producto->id}}" class="more">VER OFERTAS</a>
+					</div>
 			 @endif
 
-
-
       @endforeach
-
-
-
-    </section>
-
-
+		</div>
 	</div>
-
-	</body>
-
+</body>
 
 @endsection
