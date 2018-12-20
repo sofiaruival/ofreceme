@@ -31,7 +31,7 @@
 
 			@endforeach
 
-				<input type="submit" name="" value="Confirmar">
+				<input type="submit" name="" class="button" value="Confirmar">
 			</form>
 
 		</body>

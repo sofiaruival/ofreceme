@@ -11,3 +11,13 @@ div.containerMiCarrito {
   font-size: 25px;
 
 }
+
+.button{
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: #00ff01;
+    width: 66%;
+  }
+}
